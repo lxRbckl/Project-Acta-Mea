@@ -1,124 +1,168 @@
-# Acta Mea by Alex Arbuckle #
+# Project Acta Mea by Alex Arbuckle #
 
 
-# Import <
+# import <
 from os import path
-from discord import utils
 from json import load, dump
 from discord import Intents
-from discord.ext.commands import Bot
+from discord.ext import commands
 
 # >
 
 
-# Declaration <
-admin = ''
-path = path.realpath(__file__)[:-10]
-actaMea = Bot(command_prefix = '', intents = Intents.all())
+# global <
+path = path.realpath(__file__).split('/')
+directory = '/'.join(path[:(len(path) - 1)])
+actaMea = commands.Bot(command_prefix = '', intents = Intents.all())
 token = ''
 
 # >
 
 
-async def jsonLoad():
+def jsonLoad(file: str):
     '''  '''
 
-    with open(f'{path}actaMea.json', 'r') as fileVariable:
+    # get file <
+    # get data <
+    with open(f'{directory}{file}', 'r') as fin:
 
-        return load(fileVariable)
-
-
-async def jsonDump(arg):
-    ''' arg : dict '''
-
-    with open(f'{path}actaMea.json', 'w') as fileVariable:
-
-        dump(arg, fileVariable, indent = 4)
-
-
-@actaMea.event
-async def on_member_join(member):
-    ''' member : class '''
-
-    await member.add_roles(utils.get(member.guild.roles, name = 'Admin')) if (str(member) == admin) else (None)
-
-
-@actaMea.command(aliases = ['get', 'Get'])
-async def getServer(ctx, arg):
-    ''' arg : str '''
-
-    arg = arg.replace(' ', '-')
-    dictVariable = await jsonLoad()
-
-    # if Valid and Admin <
-    if (arg in dictVariable.keys() and (admin == str(ctx.author))):
-
-        await ctx.message.delete()
-        await ctx.author.send(await actaMea.get_channel(dictVariable[arg]).create_invite(), delete_after = 15)
+        return load(fin)
 
     # >
 
-    else:
 
-        await ctx.author.send('There was an error.', delete_after = 30)
+def jsonDump(file: str, data: dict):
+    '''  '''
 
+    # set file <
+    # set data <
+    with open(f'{directory}{file}', 'w') as fout:
 
-@actaMea.command(aliases = ['set', 'Set'])
-async def setServer(ctx, *args):
-    ''' args[n] : str '''
-
-    arg = '-'.join(i for i in args)
-    dictVariable = await jsonLoad()
-
-    # if Exists or Not Admin <
-    if ((arg in dictVariable.keys()) or (admin != str(ctx.author))):
-
-        await ctx.author.send('There was an error.', delete_after = 30)
+        dump(data, fout, indent = 3)
 
     # >
 
-    else:
 
-        dictVariable[arg] = int(ctx.channel.id)
-
-        await ctx.message.delete()
-        await jsonDump(dictVariable)
-        await ctx.author.send(f'{arg} was added.', delete_after = 30)
-
-
-@actaMea.command(aliases = ['show', 'Show'])
-async def showServer(ctx):
+@commands.has_permissions(administrator = True)
+@actaMea.command(aliases = jsonLoad(file = '/setting.json')['alias']['set'])
+async def setCommand(ctx, parKey: str, *args) -> None:
     '''  '''
 
-    dictVariable = await jsonLoad()
-    strVariable = '\n'.join(f'{i}' for i in dictVariable.keys())
+    # get data <
+    data = jsonLoad(file = '/data.json')
 
-    await ctx.message.delete()
-    await ctx.author.send(strVariable, delete_after = 30) if (admin in str(ctx.author)) else (None)
+    # >
 
+    # if ((existing key) and (nonexisting value)) then set <
+    if ((parKey in data.keys()) and (args[0] not in data[parKey].keys())):
 
-@actaMea.command(aliases = ['remove', 'Remove'])
-async def removeServer(ctx, arg):
-    ''' arg : str '''
-
-    dictVariable = await jsonLoad()
-
-    if ((arg in dictVariable.keys()) and (admin == str(ctx.author))):
-
-        del dictVariable[arg]
-
+        # set node <
+        # update data <
+        # delete message <
+        data[parKey][args[0]] = ' '.join(args[1:])
+        jsonDump(file = '/data.json', data = data)
         await ctx.message.delete()
-        await jsonDump(dictVariable)
-        await ctx.author.send(f'{arg} was removed.', delete_after = 30)
 
-    else:
+        # >
 
-        await ctx.author.send(f'{arg} does not exist.', delete_after = 30)
+    # >
+
+    # else then nonexisting key or existing value <
+    else: await ctx.send('Node already exists.', delete_after = 180)
+
+    # >
 
 
-# Main <
+@commands.has_permissions(administrator = True)
+@actaMea.command(aliases = jsonLoad(file = '/setting.json')['alias']['get'])
+async def getCommand(ctx, parKey: str, parValue: str) -> None:
+    '''  '''
+
+    # get data <
+    data = jsonLoad(file = '/data.json')
+
+    # >
+
+    # if ((existing key) and (nonexisting value)) then get <
+    if ((parKey in data.keys()) and (parValue in data[parKey].keys())):
+
+        # get node <
+        # delete message <
+        await ctx.send(data[parKey][parValue], delete_after = 180)
+        await ctx.message.delete()
+
+        # >
+
+    # >
+
+    # else then nonexisting key or nonexisting value <
+    else: await ctx.send('Node does not exist.', delete_after = 180)
+
+    # >
+
+
+@actaMea.command(aliases = jsonLoad(file = '/setting.json')['alias']['del'])
+async def delCommand(ctx, parKey: str, parValue: str) -> None:
+    '''  '''
+
+    # get data <
+    data = jsonLoad(file = '/data.json')
+
+    # >
+
+    # if ((existing key) and (nonexisting value)) then get <
+    if ((parKey in data.keys()) and (parValue in data[parKey].keys())):
+
+        # delete node <
+        # update data <
+        # delete message <
+        del data[parKey][parValue]
+        jsonDump(file = '/data.json', data = data)
+        await ctx.message.delete()
+
+        # >
+
+    # >
+
+    # else then nonexisting key or nonexisting value <
+    else: await ctx.send('Node does not exist.', delete_after = 180)
+
+    # >
+
+
+@actaMea.command(aliases = jsonLoad(file = '/setting.json')['alias']['show'])
+async def showCommand(ctx, parKey: str) -> None:
+    '''  '''
+
+    # get data <
+    data = jsonLoad(file = '/data.json')
+
+    # >
+
+    # if (existing key) then send <
+    if (parKey in data.keys()):
+
+        # send to user <
+        # delete message <
+        await ctx.send('\n'.join(k for k in data[parKey].keys()), delete_after = 60)
+        await ctx.message.delete()
+
+        # >
+
+    # >
+
+    # else then notify <
+    else: await ctx.send('Data does not exist.', delete_after = 180)
+
+    # >
+
+
+# main <
 if (__name__ == '__main__'):
 
     actaMea.run(token)
 
 # >
+
+
+# I Love You #

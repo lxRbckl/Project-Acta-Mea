@@ -1,2 +1,2 @@
-## [`Project Acta Mea 1`](http://lxrbckl.com/Project-Acta-Mea-1)
-> Access Discord servers with a Discord bot. Spring 2021.
+## [`Project Acta Mea 2`](http://lxrbckl.com/Project-Acta-Mea-2)
+> Access Discord servers and nodes you want to SSH into with a Discord bot. Spring 2022.

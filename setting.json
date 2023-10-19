@@ -1,0 +1,24 @@
+{
+  "alias" : {
+    "set" : [
+      "set",
+      "Set",
+      "SET"
+    ],
+    "get" : [
+      "get",
+      "Get",
+      "GET"
+    ],
+    "del" : [
+      "del",
+      "Del",
+      "DEL"
+    ],
+    "show" : [
+      "show",
+      "Show",
+      "SHOW"
+    ]
+  }
+}
