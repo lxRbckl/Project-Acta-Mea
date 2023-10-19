@@ -1,0 +1,13 @@
+{
+  "aliases" : [
+    "set",
+    "Set",
+    "SET",
+    "get",
+    "Get",
+    "GET",
+    "del",
+    "Del",
+    "DEL"
+  ]
+}
