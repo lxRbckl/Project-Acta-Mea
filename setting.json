@@ -1,24 +1,22 @@
 {
-  "alias" : {
-    "set" : [
-      "set",
-      "Set",
-      "SET"
-    ],
-    "get" : [
-      "get",
-      "Get",
-      "GET"
-    ],
-    "del" : [
-      "del",
-      "Del",
-      "DEL"
-    ],
-    "show" : [
-      "show",
-      "Show",
-      "SHOW"
-    ]
-  }
+  "aliases" : [
+    "set",
+    "Set",
+    "SET",
+    "get",
+    "Get",
+    "GET",
+    "update",
+    "Update",
+    "UPDATE",
+    "del",
+    "Del",
+    "DEL",
+    "where",
+    "Where",
+    "WHERE",
+    "delete",
+    "Delete",
+    "DELETE"
+  ]
 }
