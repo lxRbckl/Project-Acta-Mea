@@ -1,2 +1,2 @@
-## [`Project Acta Mea 4`](http://lxrbckl.com/Project-Acta-Mea-4)
-> Manage servers and services through a Discord bot with a remote data file. Spring 2022.
+### `Project Acta Mea 4`
+> Administer servers and services via a Discord bot utilizing a remote data file. Spring 2022.
