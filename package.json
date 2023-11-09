@@ -1,0 +1,17 @@
+{
+  "name": "project-acta-mea",
+  "version": "1.0.0",
+  "description": "> Access Discord servers with a Discord bot. Spring 2021.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.13.0"
+  }
+}
