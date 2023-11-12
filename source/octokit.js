@@ -16,7 +16,7 @@ const gPath = 'data.json';
 const gBranch = 'Project-Acta-Mea-5';
 const gRepository = 'Project-Acta-Mea';
 
-const token = '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';
+const token = '';
 
 // >
 
