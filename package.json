@@ -1,0 +1,11 @@
+{
+  "name": "project-acta-mea",
+  "version": "1.0.0",
+  "description": "> Administer servers and services via a Discord bot utilizing a remote data file. Spring 2024.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
