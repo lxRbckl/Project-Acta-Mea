@@ -12,6 +12,6 @@ class del {
 
 
 // export <
-
+module.export = del;
 
 // >

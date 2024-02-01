@@ -7,6 +7,17 @@
 // >
 
 
+// objects <
+const tokens = {
+
+   discord : '',
+   octokit : ''
+
+}
+
+// >
+
+
 (async () => {
 
    //
@@ -15,6 +26,6 @@
 
 
 // export <
-
+module.export = tokens;
 
 // >
