@@ -6,7 +6,12 @@ const set = require('./set.js');
 
 class del extends set {
 
-   constructor() {super();}
+   constructor(pDatabase) {
+      
+      super(pDatabase);
+      this.database = pDatabase;
+   
+   }
 
 
    context(nodes) {
@@ -58,10 +63,22 @@ class del extends set {
    }
 
 
-   run() {
+   run({
 
+      pInput,
+      pProperty,
+      pExistingNode
 
-      
+   }) {
+
+      console.log(
+
+         pInput,
+         pProperty,
+         pExistingNode
+
+      )
+
    }
    
 }

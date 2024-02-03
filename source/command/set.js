@@ -6,8 +6,9 @@
 
 class set {
 
-   constructor() {
+   constructor(pDatabase) {
 
+      this.database = pDatabase;
       this.properties = {
 
          'ssh' : '',
@@ -97,10 +98,24 @@ class set {
    }
 
 
-   run() {
+   run({
 
+      pInput,
+      pNewNode,
+      pProperty,
+      pExistingNode
 
-      
+   }) {
+
+      console.log(
+
+         pInput,
+         pNewNode,
+         pProperty,
+         pExistingNode
+
+      );
+
    }
    
 }

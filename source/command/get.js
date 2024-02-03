@@ -7,7 +7,11 @@
 // class get extends set {
 class get {
 
-   // constructor() {super();}
+   constructor(pDatabase) {
+
+      this.database = pDatabase;
+
+   }
 
 
    context(nodes) {
@@ -40,9 +44,13 @@ class get {
    }
 
 
-   run() {
+   run({pExistingNode}) {
 
+      console.log(
 
+         pExistingNode
+
+      );
 
    }
    

@@ -63,13 +63,16 @@ class client {
    }
 
 
-   async listen() {
+   listen() {
 
       this.client.on('interactionCreate', async (interaction) => {
 
          await this.commands[interaction.commandName].run({
 
-
+            pInput : interaction.options.get('input')?.value,
+            pNewNode : interaction.options.get('new')?.value,
+            pProperty : interaction.options.get('property')?.value,
+            pExistingNode : interaction.options.get('existing')?.value
 
          });
 
@@ -95,6 +98,8 @@ class client {
          {body : commands.map(c => c.context(nodes))}
 
       );
+
+      this.listen();
 
    }
    
