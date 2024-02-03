@@ -2,30 +2,36 @@
 
 
 // import <
-
+const client = require('./source/client.js');
+const database = require('./source/database.js');
 
 // >
 
 
 // objects <
-const tokens = {
+const token = {
 
-   discord : '',
-   octokit : ''
+   octokit : process.env.tokenOctokit,
+   discord : process.env.tokenDiscord
 
-}
+};
 
 // >
 
 
 (async () => {
 
-   //
+   new client({
+
+      pToken : token.discord,
+      pDatabase : new database(token.octokit)
+
+   }).run();
 
 })();
 
 
 // export <
-module.export = tokens;
+module.export = token;
 
 // >

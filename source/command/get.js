@@ -6,12 +6,20 @@
 
 class get {
 
+   context({data}) {
 
+      return {
+
+
+
+      };
+      
+   }
    
 }
 
 
 // export <
-module.export = get;
+module.exports = get;
 
 // >

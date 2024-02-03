@@ -4,9 +4,9 @@
 // >
 
 
-class del {
+class restart {
 
-   context({data}) {
+   context({}) {
 
       return {
 
@@ -22,6 +22,6 @@ class del {
 
 
 // export <
-module.exports = del;
+module.export = restart;
 
 // >
