@@ -58,7 +58,7 @@ class set {
                type : 3,
                name : 'new',
                value : 'new',
-               description : 'new node'
+               description : 'node'
 
             },
             {
@@ -67,7 +67,7 @@ class set {
                choices : nodes,
                name : 'existing',
                value : 'existing',
-               description : 'existing node'
+               description : 'node'
 
             },
             {
@@ -93,6 +93,13 @@ class set {
          ]
 
       };
+      
+   }
+
+
+   run() {
+
+
       
    }
    

@@ -19,6 +19,8 @@ class restart {
    }
 
    
+   run() {process.exit(0);}
+
    
 }
 

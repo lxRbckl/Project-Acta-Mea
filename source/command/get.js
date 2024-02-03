@@ -1,12 +1,13 @@
 // import <
-const set = require('./set.js');
+// const set = require('./set.js');
 
 // >
 
 
-class get extends set {
+// class get extends set {
+class get {
 
-   constructor() {super();}
+   // constructor() {super();}
 
 
    context(nodes) {
@@ -26,7 +27,7 @@ class get extends set {
                required : true,
                name : 'existing',
                value : 'existing',
-               description : 'existing node'
+               description : 'node'
 
             }
 
@@ -36,6 +37,13 @@ class get extends set {
 
       };
       
+   }
+
+
+   run() {
+
+
+
    }
    
 }

@@ -51,15 +51,30 @@ class client {
       // commands <
       this.commands = {
 
-         set : new set(),
-         get : new get(),
-         del : new del(),
-         restart : new restart()
+         'restart' : new restart(),
+         'set' : new set(this.database),
+         'get' : new get(this.database),
+         'del' : new del(this.database)
 
       };
 
       // >
       
+   }
+
+
+   async listen() {
+
+      this.client.on('interactionCreate', async (interaction) => {
+
+         await this.commands[interaction.commandName].run({
+
+
+
+         });
+
+      });
+
    }
 
 

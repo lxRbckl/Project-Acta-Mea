@@ -28,7 +28,7 @@ class del extends set {
                required : true,
                name : 'existing',
                value : 'existing',
-               description : 'existing node'
+               description : 'node'
 
             },
             {
@@ -55,6 +55,13 @@ class del extends set {
 
       };
 
+   }
+
+
+   run() {
+
+
+      
    }
    
 }
