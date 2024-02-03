@@ -6,11 +6,13 @@
 
 class restart {
 
-   context({}) {
+   context() {
 
       return {
 
-
+         type : 1,
+         name : 'restart',
+         description : 'Restart the application and reload the data.'
 
       };
 
@@ -22,6 +24,6 @@ class restart {
 
 
 // export <
-module.export = restart;
+module.exports = restart;
 
 // >

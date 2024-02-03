@@ -18,7 +18,7 @@ class database {
       // initialize <
       this.token = pToken;
       this.owner = 'lxRbckl'; // process.env.owner;
-      this.branch = 'Project-Acta-Mea-6'; // process.env.branch;
+      this.branch = 'Project-Acta-Mea-5'; // process.env.branch;
       this.filepath = 'data.json'; // process.env.filepath;
       this.repository = 'Project-Acta-Mea'; // process.env.repository;
 
@@ -29,10 +29,32 @@ class database {
    }
 
 
+   async getNodes() {
+
+      let data = Object.keys(await this.getFile());
+      return [
+
+         ...(data.map(i => {
+
+            return {
+
+               name : i,
+               value : i
+
+            };
+
+         }))
+
+      ];
+
+   }
+
+
    async getFile() {
 
       return await githubGet({
 
+         opParse : true,
          pOwner : this.owner,
          opShowError : false,
          pPath : this.filepath,

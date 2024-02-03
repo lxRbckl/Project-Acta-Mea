@@ -28,6 +28,9 @@ class client {
       // initialize <
       this.token = pToken;
       this.database = pDatabase;
+      this.guildId = '768020237139705857';
+      this.channelId = '1199281939547435030';
+      this.applicationId = '947775678584082453';
 
       this.client = new Client({
 
@@ -49,9 +52,9 @@ class client {
       this.commands = {
 
          set : new set(),
-         // get : new get(),
-         // del : new del(),
-         // restart : new restart()
+         get : new get(),
+         del : new del(),
+         restart : new restart()
 
       };
 
@@ -62,10 +65,8 @@ class client {
 
    async run() {
 
+      let nodes = await this.database.getNodes();
       let commands = Object.values(this.commands);
-      let data = Object.keys(this.database.getFile());
-
-      console.log('data', data); // remove
 
       this.client.login(this.token);
       this.client.rest.put(
@@ -76,9 +77,9 @@ class client {
             this.guildId
 
          ),
-         {body : commands.map(c => c.context(data))}
+         {body : commands.map(c => c.context(nodes))}
 
-      )
+      );
 
    }
    
