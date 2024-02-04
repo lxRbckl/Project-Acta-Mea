@@ -107,7 +107,22 @@ class set {
 
    }) {
 
-      //
+      // if (new node) <
+      // elif (existing node) <
+      // else (then unavailable) <
+      if (pNewNode && !pProperty) {
+
+
+
+      }
+      else if (pExistingNode && pProperty) {
+
+
+
+      }
+      else {return false;}
+
+      // >
 
    }
    

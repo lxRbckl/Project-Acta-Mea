@@ -71,7 +71,22 @@ class del extends set {
 
    }) {
 
-      //
+      // if (property) <
+      // elif (only node) <
+      // else (then unavailable) <
+      if (pExistingNode && pProperty) {
+
+
+
+      }
+      else if (pExistingNode && !pProperty) {
+
+
+
+      }
+      else {return false;}
+
+      // >
 
    }
    

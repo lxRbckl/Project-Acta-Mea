@@ -1,16 +1,16 @@
 // import <
-// const set = require('./set.js');
+const set = require('./set.js');
 
 // >
 
 
-// class get extends set {
-class get {
+class get extends set {
 
    constructor(pDatabase) {
-
+      
+      super(pDatabase);
       this.database = pDatabase;
-
+   
    }
 
 
@@ -46,7 +46,16 @@ class get {
 
    run({pExistingNode}) {
 
-      //
+      // if (existing node) <
+      // else (then unavailable) <
+      if (pExistingNode) {
+
+
+
+      }
+      else {return false;}
+
+      // >
 
    }
    
