@@ -67,32 +67,34 @@ class del extends set {
 
    }) {
 
+      var bData = {...pData};
+
       // if (property) <
       // elif (only node) <
       // else (then not allowed) <
       if (pExistingNode && !pProperty) {
 
-         delete pData.pExistingNode;
+         delete bData[pExistingNode];
 
       }
       else if (pExistingNode && pProperty) {
 
-         pData[pExistingNode][pProperty] = {
+         bData[pExistingNode][pProperty] = {
 
-            'ssh' : super.properties['ssh'],
-            'isDocker' : super.properties['isDocker'],
-            'description' : super.properties['description'],
-            'isKubernetes' : super.properties['isKubernetes'],
-            'server' : pData[pExistingNode]['server'].filter(i => i != pInput)
+            'ssh' : this.properties['ssh'],
+            'isDocker' : this.properties['isDocker'],
+            'description' : this.properties['description'],
+            'isKubernetes' : this.properties['isKubernetes'],
+            'server' : bData[pExistingNode]['server'].filter(i => i != pInput)
 
-         };
+         }[pProperty];
 
       }
       else {return false;}
 
       // >
 
-      return pData;
+      return bData;
 
    }
    

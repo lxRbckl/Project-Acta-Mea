@@ -29,7 +29,6 @@ class client {
       this.token = pToken;
       this.database = pDatabase;
       this.guildId = '768020237139705857'; // process.env.guildId;
-      this.channelId = '1199281939547435030'; // process.env.channelId;
       this.applicationId = '947775678584082453'; // process.env.applicationId;
 
       this.client = new Client({
@@ -63,9 +62,42 @@ class client {
    }
 
 
-   message(result) {
+   message({
 
-      this.client.channels.cache.get(this.channelId).send({content : result});
+      pResult,
+      pObject,
+      pNewNode,
+      pCommandName,
+      pExistingNode
+
+   }) {
+
+      pObject.reply({
+
+         ephemeral : true,
+         embeds : [{
+
+            title : pNewNode ? pNewNode : pExistingNode,
+            description : {
+
+               // (fail) <
+               // (success) <
+               true : ':warning: `There was an error.`',
+               false : {
+
+                  'get' : '```' + pResult + '```',
+                  'set' : ':white_check_mark: `Operation successful.`',
+                  'del' : ':white_check_mark: `Operation successful.`'
+
+               }[pCommandName]
+
+               // >
+
+            }[pResult == false]
+
+         }]
+
+      });
 
    }
 
@@ -77,10 +109,11 @@ class client {
          // setup <
          // input <
          let data = await this.database.getFile();
+         let commandName = interaction.commandName;
          let newNode = interaction.options.get('new')?.value;
          let isNewNode = await this.database.isNewNode(newNode);
 
-         let result = await this.commands[interaction.commandName].run({
+         let result = await this.commands[commandName].run({
 
             pData : data,
             pNewNode : newNode,
@@ -92,15 +125,24 @@ class client {
          });
 
          // >
+
+         // if (change) <
+         // finally (message) <
+         if ((['set', 'del'].includes(commandName)) && (result != data)) {
+            
+            await this.database.updateFile(result);
          
-         // output <
-         await {
+         }
+         
+         this.message({
 
-            'get' : this.message,
-            'set' : this.database.updateFile,
-            'del' : this.database.updateFile
+            pResult : result,
+            pObject : interaction,
+            pCommandName : commandName,
+            pNewNode : interaction.options.get('new')?.value,
+            pExistingNode : interaction.options.get('existing')?.value
 
-         }[interaction.commandName](result);
+         });
 
          // >
 

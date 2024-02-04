@@ -108,23 +108,25 @@ class set {
 
    }) {
 
+      var bData = {...pData};
+
       // if (new node) <
       // elif (existing node) <
       // else (then not allowed) <
       if (isNewNode && pNewNode && !pProperty) {
 
-         pData[pNewNode] = this.properties;
+         bData[pNewNode] = this.properties;
 
       }
       else if (pExistingNode && pProperty) {
 
-         pData[pExistingNode][pProperty] = {
+         bData[pExistingNode][pProperty] = {
 
             'ssh' : pInput,
             'description' : pInput,
             'isDocker' : Boolean(pInput),
             'isKubernetes' : Boolean(pInput),
-            'server' : pData[pExistingNode]['server'].concat(pInput)
+            'server' : bData[pExistingNode]['server'].concat(pInput)
 
          }[pProperty];
 
@@ -133,7 +135,7 @@ class set {
 
       // >
 
-      return pData;
+      return bData;
 
    }
    

@@ -77,19 +77,24 @@ class database {
 
    async updateFile(data) {
 
-      let result = await githubUpdate({
+      // if (valid format) <
+      if (data != false) {
 
-         pData : data,
-         pOwner : this.owner,
-         opShowError : false,
-         pPath : this.filepath,
-         pGithub : this.octokit,
-         opBranch : this.branch,
-         pRepository : this.repository
+         await githubUpdate({
 
-      });
+            pData : data,
+            pOwner : this.owner,
+            opShowError : false,
+            pPath : this.filepath,
+            pGithub : this.octokit,
+            opBranch : this.branch,
+            pRepository : this.repository
 
-      return (result == undefined);
+         });
+
+      }
+
+      // >
 
    }
 
