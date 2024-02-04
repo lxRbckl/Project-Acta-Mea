@@ -6,12 +6,7 @@ const set = require('./set.js');
 
 class get extends set {
 
-   constructor(pDatabase) {
-      
-      super(pDatabase);
-      this.database = pDatabase;
-   
-   }
+   constructor() {super();}
 
 
    context(nodes) {

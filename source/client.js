@@ -28,9 +28,9 @@ class client {
       // initialize <
       this.token = pToken;
       this.database = pDatabase;
-      this.guildId = '768020237139705857';
-      this.channelId = '1199281939547435030';
-      this.applicationId = '947775678584082453';
+      this.guildId = '768020237139705857'; // process.env.guildId;
+      this.channelId = '1199281939547435030'; // process.env.channelId;
+      this.applicationId = '947775678584082453'; // process.env.applicationId;
 
       this.client = new Client({
 
@@ -51,10 +51,10 @@ class client {
       // commands <
       this.commands = {
 
-         'restart' : new restart(),
-         'set' : new set(this.database),
-         'get' : new get(this.database),
-         'del' : new del(this.database)
+         'set' : new set(),
+         'get' : new get(),
+         'del' : new del(),
+         'restart' : new restart()
 
       };
 
@@ -67,10 +67,16 @@ class client {
 
       this.client.on('interactionCreate', async (interaction) => {
 
+         let data = await this.database.getFile();
+         let newNode = interaction.options.get('new')?.value;
+         let isNewNode = await this.database.isNewNode(newNode);
+
          await this.commands[interaction.commandName].run({
 
+            pData : data,
+            pNewNode : newNode,
+            isNewNode : isNewNode,
             pInput : interaction.options.get('input')?.value,
-            pNewNode : interaction.options.get('new')?.value,
             pProperty : interaction.options.get('property')?.value,
             pExistingNode : interaction.options.get('existing')?.value
 

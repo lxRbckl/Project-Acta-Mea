@@ -6,9 +6,8 @@
 
 class set {
 
-   constructor(pDatabase) {
+   constructor() {
 
-      this.database = pDatabase;
       this.properties = {
 
          'ssh' : '',
@@ -98,10 +97,11 @@ class set {
    }
 
 
-   run({
+   async run({
 
       pInput,
       pNewNode,
+      isNewNode,
       pProperty,
       pExistingNode
 
@@ -110,7 +110,7 @@ class set {
       // if (new node) <
       // elif (existing node) <
       // else (then unavailable) <
-      if (pNewNode && !pProperty) {
+      if (isNewNode && pNewNode && !pProperty) {
 
 
 

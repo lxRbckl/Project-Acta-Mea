@@ -29,12 +29,20 @@ class database {
    }
 
 
+   async isNewNode(pNode) {
+
+      let nodes = Object.keys(await this.getFile());
+      return nodes.includes(pNode);
+
+   }
+
+
    async getNodes() {
 
-      let data = Object.keys(await this.getFile());
+      let nodes = Object.keys(await this.getFile());
       return [
 
-         ...(data.map(i => {
+         ...(nodes.map(i => {
 
             return {
 
