@@ -17,10 +17,10 @@ class database {
       // setup <
       // initialize <
       this.token = pToken;
-      this.owner = 'lxRbckl'; // process.env.owner;
-      this.branch = 'Project-Acta-Mea-5'; // process.env.branch;
-      this.filepath = 'data.json'; // process.env.filepath;
-      this.repository = 'Project-Acta-Mea'; // process.env.repository;
+      this.owner = process.env.owner;
+      this.branch = process.env.branch;
+      this.filepath = process.env.filepath;
+      this.repository = process.env.repository;
 
       this.octokit = new Octokit({auth : this.token});
 

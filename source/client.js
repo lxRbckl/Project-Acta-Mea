@@ -28,8 +28,8 @@ class client {
       // initialize <
       this.token = pToken;
       this.database = pDatabase;
-      this.guildId = '768020237139705857'; // process.env.guildId;
-      this.applicationId = '947775678584082453'; // process.env.applicationId;
+      this.guildId = process.env.guildId;
+      this.applicationId = process.env.applicationId;
 
       this.client = new Client({
 
