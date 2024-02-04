@@ -1,13 +1,4 @@
-// import <
-const set = require('./set.js');
-
-// >
-
-
-class get extends set {
-
-   constructor() {super();}
-
+class get {
 
    context(nodes) {
 
@@ -39,14 +30,25 @@ class get extends set {
    }
 
 
-   run({pExistingNode}) {
+   run({
+      
+      pData,
+      pExistingNode
+   
+   }) {
 
       // if (existing node) <
-      // else (then unavailable) <
+      // else (then not allowed) <
       if (pExistingNode) {
-
-
-
+         
+         return JSON.stringify(
+            
+            pData[pExistingNode], 
+            null, 
+            3
+            
+         );
+      
       }
       else {return false;}
 

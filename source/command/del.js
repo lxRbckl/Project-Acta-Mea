@@ -60,6 +60,7 @@ class del extends set {
 
    run({
 
+      pData,
       pInput,
       pProperty,
       pExistingNode
@@ -68,20 +69,30 @@ class del extends set {
 
       // if (property) <
       // elif (only node) <
-      // else (then unavailable) <
-      if (pExistingNode && pProperty) {
+      // else (then not allowed) <
+      if (pExistingNode && !pProperty) {
 
-
+         delete pData.pExistingNode;
 
       }
-      else if (pExistingNode && !pProperty) {
+      else if (pExistingNode && pProperty) {
 
+         pData[pExistingNode][pProperty] = {
 
+            'ssh' : super.properties['ssh'],
+            'isDocker' : super.properties['isDocker'],
+            'description' : super.properties['description'],
+            'isKubernetes' : super.properties['isKubernetes'],
+            'server' : pData[pExistingNode]['server'].filter(i => i != pInput)
+
+         };
 
       }
       else {return false;}
 
       // >
+
+      return pData;
 
    }
    

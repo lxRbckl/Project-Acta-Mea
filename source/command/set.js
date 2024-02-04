@@ -11,7 +11,7 @@ class set {
       this.properties = {
 
          'ssh' : '',
-         'services' : [],
+         'server' : [],
          'isDocker' : false,
          'description' : '',
          'isKubernetes' : false
@@ -99,6 +99,7 @@ class set {
 
    async run({
 
+      pData,
       pInput,
       pNewNode,
       isNewNode,
@@ -109,20 +110,30 @@ class set {
 
       // if (new node) <
       // elif (existing node) <
-      // else (then unavailable) <
+      // else (then not allowed) <
       if (isNewNode && pNewNode && !pProperty) {
 
-
+         pData[pNewNode] = this.properties;
 
       }
       else if (pExistingNode && pProperty) {
 
+         pData[pExistingNode][pProperty] = {
 
+            'ssh' : pInput,
+            'description' : pInput,
+            'isDocker' : Boolean(pInput),
+            'isKubernetes' : Boolean(pInput),
+            'server' : pData[pExistingNode]['server'].concat(pInput)
+
+         }[pProperty];
 
       }
       else {return false;}
 
       // >
+
+      return pData;
 
    }
    

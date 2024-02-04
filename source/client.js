@@ -63,15 +63,24 @@ class client {
    }
 
 
+   message(result) {
+
+      this.client.channels.cache.get(this.channelId).send({content : result});
+
+   }
+
+
    listen() {
 
       this.client.on('interactionCreate', async (interaction) => {
 
+         // setup <
+         // input <
          let data = await this.database.getFile();
          let newNode = interaction.options.get('new')?.value;
          let isNewNode = await this.database.isNewNode(newNode);
 
-         await this.commands[interaction.commandName].run({
+         let result = await this.commands[interaction.commandName].run({
 
             pData : data,
             pNewNode : newNode,
@@ -81,6 +90,19 @@ class client {
             pExistingNode : interaction.options.get('existing')?.value
 
          });
+
+         // >
+         
+         // output <
+         await {
+
+            'get' : this.message,
+            'set' : this.database.updateFile,
+            'del' : this.database.updateFile
+
+         }[interaction.commandName](result);
+
+         // >
 
       });
 

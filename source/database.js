@@ -32,7 +32,7 @@ class database {
    async isNewNode(pNode) {
 
       let nodes = Object.keys(await this.getFile());
-      return nodes.includes(pNode);
+      return !(nodes.includes(pNode));
 
    }
 
@@ -81,7 +81,7 @@ class database {
 
          pData : data,
          pOwner : this.owner,
-         opShowError : true,
+         opShowError : false,
          pPath : this.filepath,
          pGithub : this.octokit,
          opBranch : this.branch,
