@@ -14,7 +14,7 @@ class set {
          'server' : [],
          'isDocker' : false,
          'description' : '',
-         'isKubernetes' : false
+         'isDockerSwarm' : false
 
       };
 
@@ -125,7 +125,7 @@ class set {
             'ssh' : pInput,
             'description' : pInput,
             'isDocker' : Boolean(pInput),
-            'isKubernetes' : Boolean(pInput),
+            'isDockerSwarm' : Boolean(pInput),
             'server' : bData[pExistingNode]['server'].concat(pInput)
 
          }[pProperty];

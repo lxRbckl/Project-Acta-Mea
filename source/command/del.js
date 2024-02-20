@@ -84,7 +84,7 @@ class del extends set {
             'ssh' : this.properties['ssh'],
             'isDocker' : this.properties['isDocker'],
             'description' : this.properties['description'],
-            'isKubernetes' : this.properties['isKubernetes'],
+            'isDockerSwarm' : this.properties['isDockerSwarm'],
             'server' : bData[pExistingNode]['server'].filter(i => i != pInput)
 
          }[pProperty];
