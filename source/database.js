@@ -1,5 +1,5 @@
 // import <
-const {Octokit} = require('@Octokit/rest');
+const {Octokit} = require('@octokit/rest');
 const {
 
    githubGet,
