@@ -1,0 +1,24 @@
+{
+  "name": "project-acta-mea",
+  "version": "1.0.0",
+  "description": "> Administer servers and services via a Discord bot utilizing a remote data file. Spring 2024.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lxRbckl/Project-Acta-Mea.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lxRbckl/Project-Acta-Mea/issues"
+  },
+  "homepage": "https://github.com/lxRbckl/Project-Acta-Mea#readme",
+  "dependencies": {
+    "@octokit/rest": "^20.0.2",
+    "discord.js": "^14.14.1",
+    "lxrbckl": "^6.5.0"
+  }
+}
