@@ -1,7 +1,7 @@
 FROM node:19.5.0
 
 
-# referencing kubernetes environment #
+# referencing docker compose #
 ENV owner ${owner}
 ENV branch ${branch}
 ENV guildId ${guildId}
