@@ -3,8 +3,9 @@
       "demo": {
          "isHost": false,
          "isSwarm": false,
-         "status": false,
+         "status": true,
          "service": [
+            "demoe",
             "demoe"
          ]
       },
