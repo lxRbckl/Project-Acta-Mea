@@ -1,7 +1,7 @@
 {
    "host": {
       "demo": {
-         "isHost": true,
+         "isHost": false,
          "isSwarm": false,
          "status": false,
          "service": [
