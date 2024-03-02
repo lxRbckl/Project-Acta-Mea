@@ -5,7 +5,6 @@
          "isSwarm": false,
          "status": false,
          "service": [
-            "hero",
             "demoe"
          ]
       },
