@@ -1,4 +1,11 @@
 {
-   "host" : {},
-   "swarm" : {}
+   "host": {
+      "demo": {
+         "isHost": true,
+         "isSwarm": false,
+         "status": false,
+         "service": []
+      }
+   },
+   "swarm": {}
 }
