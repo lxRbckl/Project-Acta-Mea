@@ -9,7 +9,9 @@
    },
    "swarm": {
       "22h6mhenqi5vztok4slh43ogg": {
-         "service": "project-ja,",
+         "service": [
+            "project-ja"
+         ],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
