@@ -4,10 +4,7 @@
          "isHost": false,
          "isSwarm": false,
          "status": true,
-         "service": [
-            "demoe",
-            "demoe"
-         ]
+         "service": []
       },
       "ko": {
          "isHost": true,
