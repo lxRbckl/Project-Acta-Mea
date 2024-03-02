@@ -1,9 +1,10 @@
-// < Project Acta Mea 6 by Alex Arbuckle > //
+// < Project Acta Mea 5 by Alex Arbuckle > //
 
 
 // import <
 const client = require('./source/client.js');
 const database = require('./source/database.js');
+const supervisor = require('./source/supervisor.js');
 
 // >
 
@@ -24,7 +25,8 @@ const token = {
    await new client({
 
       pToken : token.discord,
-      pDatabase : new database(token.octokit)
+      objSupervisor : new supervisor(),
+      objDatabase : new database(token.octokit)
 
    }).run();
 

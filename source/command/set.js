@@ -1,90 +1,89 @@
-// import <
-
-
-// >
-
-
 class set {
 
-   constructor() {
+   constructor(objDatabase) {
 
+      this.database = objDatabase;
       this.properties = {
 
-         'ssh' : '',
-         'server' : [],
-         'isDocker' : false,
-         'description' : '',
-         'isDockerSwarm' : false
+         'service' : [],
+         'status' : false,
+         'isHost' : false,
+         'isSwarm' : false
 
       };
 
    }
 
 
-   getProperties() {
+   getPropertyChoices() {
 
-      return [
+      return (Object.keys(this.properties)).map(i => {
 
-         ...(Object.keys(this.properties).map(i => {
+         return {
 
-            return {
+            name : i,
+            value : i
 
-               name : i,
-               value : i
+         };
 
-            };
+         // >
 
-         }))
-
-      ];
+      });
 
    }
 
 
-   context(nodes) {
+   context() {
 
       return {
 
          type : 1,
          name : 'set',
-         description : 'Add/update a node or update a property.',
+         description : 'description',
          options : [
 
-            // node <
-            // property <
-            // user input <
+            // uid <
+            // status <
+            // service <
             {
-               
+
                type : 3,
-               name : 'new',
-               value : 'new',
-               description : 'node'
+               name : 'uid',
+               value : 'uid',
+               required : true,
+               description : 'description'
 
             },
             {
 
                type : 3,
-               choices : nodes,
-               name : 'existing',
-               value : 'existing',
-               description : 'node'
+               name : 'status',
+               value : 'status',
+               description : 'description',
+               choices : [
+
+                  {
+
+                     name : 'true',
+                     value : 'true'
+         
+                  },
+                  {
+         
+                     name : 'false',
+                     value : 'false'
+         
+                  }
+
+               ]
 
             },
             {
 
                type : 3,
-               name : 'property',
-               value : 'property',
-               description : 'node required',
-               choices : this.getProperties()
-
-            },
-            {
-
-               type : 3,
-               name : 'input',
-               value : 'input',
-               description : 'property required'
+               name : 'service',
+               value : 'service',
+               description : 'description'
 
             }
 
@@ -92,57 +91,61 @@ class set {
 
          ]
 
-      };
-      
+      }
+
    }
 
 
    async run({
 
+      pUID,
       pData,
-      pInput,
-      pNewNode,
-      isNewNode,
-      pProperty,
-      pExistingNode
+      pStatus,
+      pService
 
    }) {
 
-      var bData = {...pData};
-
       // if (new node) <
-      // elif (existing node) <
-      // else (then not allowed) <
-      if (isNewNode && pNewNode && !pProperty) {
+      // else (then existing node) <
+      if (!(await this.database.isNode(pUID))) {
 
-         bData[pNewNode] = this.properties;
+         pData['host'][pUID] = {
 
-      }
-      else if (pExistingNode && pProperty) {
+            'isHost' : true,
+            'isSwarm' : false,
+            'status' : Boolean(pStatus) || this.properties['status'],
+            'service' : pService ? [pService] : this.properties['service']
 
-         bData[pExistingNode][pProperty] = {
-
-            'ssh' : pInput,
-            'description' : pInput,
-            'isDocker' : Boolean(pInput),
-            'isDockerSwarm' : Boolean(pInput),
-            'server' : bData[pExistingNode]['server'].concat(pInput)
-
-         }[pProperty];
+         };
 
       }
-      else {return false;}
+      else {
+
+         let current = pData['host'][pUID];
+         let service = [...current['service'], pService];
+
+         pData['host'][pUID]['service'] = pService ? service : current['service'];
+         pData['host'][pUID]['status'] = {
+
+            'true' : true,
+            'false' : false,
+            undefined : current['status']
+
+         }[pStatus];
+         
+
+      }
 
       // >
 
-      return bData;
+      await this.database.updateData(pData);
 
    }
-   
+
 }
 
 
-// export <
+// exports <
 module.exports = set;
 
 // >

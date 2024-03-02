@@ -1,4 +1,4 @@
-// import <
+// imports <
 const set = require('./set.js');
 
 // >
@@ -6,29 +6,31 @@ const set = require('./set.js');
 
 class del extends set {
 
-   constructor() {super();}
+   constructor(objDatabase) {
+      
+      super(objDatabase);
+      this.database = objDatabase;
+
+   }
 
 
-   context(nodes) {
+   context(pChoices) {
 
       return {
 
          type : 1,
          name : 'del',
-         description : 'Remove existing node or property.',
+         description : 'description',
          options : [
 
-            // node <
-            // property <
-            // user input <
             {
 
                type : 3,
-               choices : nodes,
+               name : 'uid',
+               value : 'uid',
                required : true,
-               name : 'existing',
-               value : 'existing',
-               description : 'node'
+               choices : pChoices,
+               description : 'description'
 
             },
             {
@@ -36,72 +38,64 @@ class del extends set {
                type : 3,
                name : 'property',
                value : 'property',
-               description : 'node required',
-               choices : super.getProperties()
+               description : 'description',
+               choices : this.getPropertyChoices()
 
             },
             {
 
                type : 3,
-               name : 'input',
-               value : 'input',
-               description : 'property required'
+               name : 'service',
+               value : 'service',
+               description : 'description'
 
             }
 
-            // >
-
          ]
 
-      };
+      }
 
    }
 
 
-   run({
+   async run({
 
+      pUID,
       pData,
-      pInput,
-      pProperty,
-      pExistingNode
+      pService,
+      pProperty
 
    }) {
 
-      var bData = {...pData};
+      // if (no property specified) <
+      // else (then erase whole node) <
+      if (!pProperty) {delete pData['host'][pUID];}
+      else {
+         
+         let service = pData['host'][pUID]['service'];
+         service = service.filter(i => i != pService);
 
-      // if (property) <
-      // elif (only node) <
-      // else (then not allowed) <
-      if (pExistingNode && !pProperty) {
+         pData['host'][pUID][pProperty] = {
 
-         delete bData[pExistingNode];
-
-      }
-      else if (pExistingNode && pProperty) {
-
-         bData[pExistingNode][pProperty] = {
-
-            'ssh' : this.properties['ssh'],
-            'isDocker' : this.properties['isDocker'],
-            'description' : this.properties['description'],
-            'isDockerSwarm' : this.properties['isDockerSwarm'],
-            'server' : bData[pExistingNode]['server'].filter(i => i != pInput)
+            'service' : service,
+            'isHost' : this.properties[pProperty],
+            'status' : this.properties[pProperty],
+            'isSwarm' : this.properties[pProperty]
 
          }[pProperty];
 
       }
-      else {return false;}
 
       // >
 
-      return bData;
+      await this.database.updateData(pData);
 
    }
-   
+
 }
 
 
-// export <
+// exports <
 module.exports = del;
 
 // >

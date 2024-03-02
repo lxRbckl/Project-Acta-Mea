@@ -14,8 +14,6 @@ class database {
 
    constructor(pToken) {
 
-      // setup <
-      // initialize <
       this.token = pToken;
       this.owner = process.env.owner;
       this.branch = process.env.branch;
@@ -24,41 +22,10 @@ class database {
 
       this.octokit = new Octokit({auth : this.token});
 
-      // >
-
    }
 
 
-   async isNewNode(pNode) {
-
-      let nodes = Object.keys(await this.getFile());
-      return !(nodes.includes(pNode));
-
-   }
-
-
-   async getNodes() {
-
-      let nodes = Object.keys(await this.getFile());
-      return [
-
-         ...(nodes.map(i => {
-
-            return {
-
-               name : i,
-               value : i
-
-            };
-
-         }))
-
-      ];
-
-   }
-
-
-   async getFile() {
+   async getData() {
 
       return await githubGet({
 
@@ -75,24 +42,63 @@ class database {
    }
 
 
-   async updateFile(data) {
+   async updateData(pData) {
 
-      // if (valid format) <
-      if (data != false) {
+      return await githubUpdate({
 
-         await githubUpdate({
+         pData : pData,
+         pOwner : this.owner,
+         opShowError : false,
+         pPath : this.filepath,
+         pGithub : this.octokit,
+         opBranch : this.branch,
+         opErrorMessage : false,
+         pRepository : this.repository
 
-            pData : data,
-            pOwner : this.owner,
-            opShowError : false,
-            pPath : this.filepath,
-            pGithub : this.octokit,
-            opBranch : this.branch,
-            pRepository : this.repository
+      });
+
+   }
+
+
+   async isNode(pNode) {
+
+      // try (if nodes) <
+      // except (then new) <
+      try {
+
+         let nodes = await this.getData();
+         let uids = Object.keys(nodes['host']);
+
+         return uids.includes(pNode);
+      
+      } catch (error) {return false;}
+
+      // >
+
+   }
+
+
+   async getNodesChoices() {
+
+      // try (if nodes) <
+      // except (then new) <
+      try {
+
+         let nodes = await this.getData();
+         let uids = Object.keys(nodes['host']);
+
+         return uids.map(i => {
+
+            return {
+
+               name : i,
+               value : i
+
+            };
 
          });
 
-      }
+      } catch (error) {return [];}
 
       // >
 
@@ -101,7 +107,7 @@ class database {
 }
 
 
-// export <
+// exports <
 module.exports = database;
 
 // >

@@ -1,65 +1,66 @@
 class get {
 
-   context(nodes) {
+   constructor(objDatabase) {this.database = objDatabase;}
+
+
+   context(pChoices) {
 
       return {
 
          type : 1,
          name : 'get',
-         description : 'Get the properties of an existing node.',
+         description : 'description',
          options : [
 
-            // node <
             {
 
                type : 3,
-               choices : nodes,
-               required : true,
-               name : 'existing',
-               value : 'existing',
-               description : 'node'
+               name : 'uid',
+               value : 'uid',
+               choices : pChoices,
+               description : 'description'
 
             }
 
-            // >
-
          ]
 
-      };
-      
+      }
+
    }
 
 
-   run({
+   async run({
       
-      pData,
-      pExistingNode
+      pUID,
+      pData
    
    }) {
 
-      // if (existing node) <
-      // else (then not allowed) <
-      if (pExistingNode) {
-         
-         return JSON.stringify(
+      return ('```json\n' + {
+
+         false : () => {return JSON.stringify(
             
-            pData[pExistingNode], 
+            pData['host'][pUID], 
             null, 
             3
             
-         );
-      
-      }
-      else {return false;}
+         )},
+         true : () => {return JSON.stringify(
+            
+            Object.keys(pData['host']),
+            null,
+            3
+         
+         );}
 
-      // >
+      }[!pUID]() + '```');
 
    }
-   
+
 }
 
 
-// export <
+// exports <
 module.exports = get;
 
 // >

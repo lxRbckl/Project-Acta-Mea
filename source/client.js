@@ -1,4 +1,5 @@
 // import <
+const cron = require('node-cron');
 const {
 
    Client,
@@ -10,6 +11,7 @@ const {
 const set = require('./command/set.js');
 const get = require('./command/get.js');
 const del = require('./command/del.js');
+const update = require('./command/update.js');
 const restart = require('./command/restart.js');
 
 // >
@@ -20,20 +22,31 @@ class client {
    constructor({
 
       pToken,
-      pDatabase
+      objDatabase,
+      objSupervisor
 
    }) {
 
-      // setup <
-      // initialize <
       this.token = pToken;
-      this.database = pDatabase;
-      this.guildId = process.env.guildId;
-      this.applicationId = process.env.applicationId;
+      this.database = objDatabase;
+      this.supervisor = objSupervisor;
+      this.guildId = process.env.guildId
+      this.channelId = process.env.channelId
+      this.applicationId = process.env.applicationId
+
+      this.commands = {
+
+         'restart' : new restart(),
+         'set' : new set(this.database),
+         'get' : new get(this.database),
+         'del' : new del(this.database),
+         'update' : new update(this.database, this.supervisor)
+
+      };
 
       this.client = new Client({
 
-         rest : {version : '10'},
+         rest : {'version' : 10},
          intents : [
       
             IntentsBitField.Flags.Guilds,
@@ -42,62 +55,16 @@ class client {
             IntentsBitField.Flags.MessageContent
       
          ]
-      
+
       });
 
-      // >
-
-      // commands <
-      this.commands = {
-
-         'set' : new set(),
-         'get' : new get(),
-         'del' : new del(),
-         'restart' : new restart()
-
-      };
-
-      // >
-      
    }
 
 
-   message({
+   message(pContent) {
 
-      pResult,
-      pObject,
-      pNewNode,
-      pCommandName,
-      pExistingNode
-
-   }) {
-
-      pObject.reply({
-
-         ephemeral : true,
-         embeds : [{
-
-            title : pNewNode ? pNewNode : pExistingNode,
-            description : {
-
-               // (fail) <
-               // (success) <
-               true : ':warning: `There was an error.`',
-               false : {
-
-                  'get' : '```' + pResult + '```',
-                  'set' : ':white_check_mark: `Operation successful.`',
-                  'del' : ':white_check_mark: `Operation successful.`'
-
-               }[pCommandName]
-
-               // >
-
-            }[pResult == false]
-
-         }]
-
-      });
+      let channel = this.client.channels.cache.get(this.channelId);
+      channel.send('`' + pContent + '`');
 
    }
 
@@ -106,45 +73,41 @@ class client {
 
       this.client.on('interactionCreate', async (interaction) => {
 
-         // setup <
-         // input <
-         let data = await this.database.getFile();
-         let commandName = interaction.commandName;
-         let newNode = interaction.options.get('new')?.value;
-         let isNewNode = await this.database.isNewNode(newNode);
+         let command = this.commands[interaction.commandName];
+         let result = await command.run({
 
-         let result = await this.commands[commandName].run({
-
-            pData : data,
-            pNewNode : newNode,
-            isNewNode : isNewNode,
-            pInput : interaction.options.get('input')?.value,
-            pProperty : interaction.options.get('property')?.value,
-            pExistingNode : interaction.options.get('existing')?.value
-
-         });
-
-         // >
-
-         // if (change) <
-         // finally (message) <
-         if ((['set', 'del'].includes(commandName)) && (result != data)) {
+            pData : await this.database.getData(),
             
-            await this.database.updateFile(result);
-         
-         }
-         
-         this.message({
-
-            pResult : result,
-            pObject : interaction,
-            pCommandName : commandName,
-            pNewNode : interaction.options.get('new')?.value,
-            pExistingNode : interaction.options.get('existing')?.value
+            pUID : interaction.options.get('uid')?.value,
+            pValue : interaction.options.get('value')?.value,
+            pStatus : interaction.options.get('status')?.value,
+            pService : interaction.options.get('service')?.value,
+            pProperty : interaction.options.get('property')?.value
 
          });
 
-         // >
+         interaction.reply({
+            
+            ephemeral : true, 
+            content : result || '`Request Sent`'
+         
+         });
+
+      });
+
+   }
+
+
+   schedule() {
+
+      this.client.on('ready', async () => {
+
+         cron.schedule('0 0 * * *', async () => {
+
+            let result = await this.supervisor.run(this.database);
+            this.message(result);
+
+         });
 
       });
 
@@ -153,8 +116,8 @@ class client {
 
    async run() {
 
-      let nodes = await this.database.getNodes();
       let commands = Object.values(this.commands);
+      let nodes = await this.database.getNodesChoices();
 
       this.client.login(this.token);
       this.client.rest.put(
@@ -170,13 +133,14 @@ class client {
       );
 
       this.listen();
+      this.schedule();
 
    }
-   
+
 }
 
 
-// export <
+// exports <
 module.exports = client;
 
 // >

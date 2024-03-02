@@ -12,7 +12,7 @@ class restart {
 
          type : 1,
          name : 'restart',
-         description : 'Restart the application and reload the data.'
+         description : 'description'
 
       };
 
