@@ -4,9 +4,7 @@
          "isHost": true,
          "isSwarm": false,
          "status": false,
-         "service": [
-            "example"
-         ]
+         "service": []
       }
    },
    "swarm": {
