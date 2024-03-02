@@ -8,6 +8,14 @@
             "hero",
             "demoe"
          ]
+      },
+      "ko": {
+         "isHost": true,
+         "isSwarm": false,
+         "status": true,
+         "service": [
+            "example"
+         ]
       }
    },
    "swarm": {
