@@ -1,4 +1,97 @@
 {
+<<<<<<< HEAD
    "host" : {},
    "swarm" : {}
+=======
+   "host": {
+      "demo": {
+         "isHost": false,
+         "isSwarm": false,
+         "status": true,
+         "service": []
+      },
+      "ko": {
+         "isHost": true,
+         "isSwarm": false,
+         "status": true,
+         "service": [
+            "example"
+         ]
+      }
+   },
+   "swarm": {
+      "22h6mhenqi5vztok4slh43ogg": {
+         "service": [
+            "project-ja"
+         ],
+         "status": "ready",
+         "isHost": false,
+         "isSwarm": true,
+         "hostname": "highlander03"
+      },
+      "4nsi4s9yvtru3k8e372vsgwlo": {
+         "service": [],
+         "status": "ready",
+         "isHost": false,
+         "isSwarm": true,
+         "hostname": "highlander09"
+      },
+      "gjfrh1qatc362vqovxoxh8ufp": {
+         "service": [],
+         "status": "ready",
+         "isHost": false,
+         "isSwarm": true,
+         "hostname": "highlander07"
+      },
+      "in85cpktp9myej19t35lrc32g": {
+         "service": [],
+         "status": "ready",
+         "isHost": false,
+         "isSwarm": true,
+         "hostname": "highlander06"
+      },
+      "j6pw1rf87ieonmniuidinrofd": {
+         "service": [],
+         "status": "ready",
+         "isHost": false,
+         "isSwarm": true,
+         "hostname": "highlander10"
+      },
+      "k6uwybdf7q635x2no8m1nlo6i": {
+         "service": [],
+         "status": "ready",
+         "isHost": false,
+         "isSwarm": true,
+         "hostname": "highlander08"
+      },
+      "k9llucn0r6yfvwqpmrze0fs1q": {
+         "service": [],
+         "status": "ready",
+         "isHost": false,
+         "isSwarm": true,
+         "hostname": "highlander14"
+      },
+      "rlgdgn8ku8y9ajs39v1ernjfe": {
+         "service": [],
+         "status": "ready",
+         "isHost": false,
+         "isSwarm": true,
+         "hostname": "highlander04"
+      },
+      "tqjydd13c3jn0x1aunmqqpqo6": {
+         "service": [],
+         "status": "ready",
+         "isHost": false,
+         "isSwarm": true,
+         "hostname": "highlander01"
+      },
+      "usjxsedmbmtr1wbyk7vgvnaw1": {
+         "service": [],
+         "status": "ready",
+         "isHost": false,
+         "isSwarm": true,
+         "hostname": "highlander11"
+      }
+   }
+>>>>>>> c53babbcd207f42b83f83739fa2ff3ad1b6b8089
 }
