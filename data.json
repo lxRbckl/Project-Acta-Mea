@@ -13,6 +13,14 @@
          "service": [
             "example"
          ]
+      },
+      "trial": {
+         "isHost": true,
+         "isSwarm": false,
+         "status": true,
+         "service": [
+            "demo"
+         ]
       }
    },
    "swarm": {
