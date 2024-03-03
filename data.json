@@ -10,9 +10,7 @@
          "isHost": true,
          "isSwarm": false,
          "status": true,
-         "service": [
-            "example"
-         ]
+         "service": []
       },
       "trial": {
          "isHost": true,
