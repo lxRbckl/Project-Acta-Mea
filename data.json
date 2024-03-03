@@ -1,8 +1,6 @@
 {
-<<<<<<< HEAD
    "host" : {},
    "swarm" : {}
-=======
    "host": {
       "demo": {
          "isHost": false,
@@ -93,5 +91,4 @@
          "hostname": "highlander11"
       }
    }
->>>>>>> c53babbcd207f42b83f83739fa2ff3ad1b6b8089
 }
