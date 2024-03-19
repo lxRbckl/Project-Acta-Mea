@@ -12,7 +12,6 @@ const set = require('./command/set.js');
 const get = require('./command/get.js');
 const del = require('./command/del.js');
 const update = require('./command/update.js');
-const extract = require('./command/extract.js');
 const restart = require('./command/restart.js');
 
 // >
@@ -38,7 +37,6 @@ class client {
       this.commands = {
 
          'restart' : new restart(),
-         'extract' : new extract(),
          'set' : new set(this.database),
          'get' : new get(this.database),
          'del' : new del(this.database),
