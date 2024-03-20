@@ -30,7 +30,9 @@
          "hostname": "highlander03"
       },
       "4nsi4s9yvtru3k8e372vsgwlo": {
-         "service": [],
+         "service": [
+            "project-acta-mea"
+         ],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
@@ -61,7 +63,7 @@
       },
       "k6uwybdf7q635x2no8m1nlo6i": {
          "service": [],
-         "status": "ready",
+         "status": "down",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander08"
@@ -77,16 +79,14 @@
       },
       "rlgdgn8ku8y9ajs39v1ernjfe": {
          "service": [],
-         "status": "ready",
+         "status": "down",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander04"
       },
       "tqjydd13c3jn0x1aunmqqpqo6": {
-         "service": [
-            "project-acta-mea"
-         ],
-         "status": "ready",
+         "service": [],
+         "status": "down",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander01"
