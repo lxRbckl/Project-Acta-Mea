@@ -24,7 +24,7 @@
    "swarm": {
       "22h6mhenqi5vztok4slh43ogg": {
          "service": [],
-         "status": "down",
+         "status": "ready",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander03"
@@ -54,7 +54,7 @@
       },
       "j6pw1rf87ieonmniuidinrofd": {
          "service": [],
-         "status": "down",
+         "status": "ready",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander10"
