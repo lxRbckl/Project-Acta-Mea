@@ -10,7 +10,9 @@
          "isHost": true,
          "isSwarm": false,
          "status": false,
-         "service": []
+         "service": [
+            "Pinecraft Server"
+         ]
       }
    },
    "swarm": {
