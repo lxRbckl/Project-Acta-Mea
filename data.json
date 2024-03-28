@@ -1,11 +1,5 @@
 {
    "host": {
-      "demo": {
-         "isHost": true,
-         "isSwarm": false,
-         "status": true,
-         "service": []
-      },
       "ko": {
          "isHost": true,
          "isSwarm": false,
