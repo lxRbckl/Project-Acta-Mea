@@ -4,7 +4,9 @@
          "isHost": true,
          "isSwarm": false,
          "status": false,
-         "service": []
+         "service": [
+            "Project PasCam"
+         ]
       },
       "highlander15": {
          "isHost": true,
