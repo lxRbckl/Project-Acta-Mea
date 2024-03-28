@@ -1,5 +1,12 @@
 {
-   "host": {},
+   "host": {
+      "highlander2": {
+         "isHost": true,
+         "isSwarm": false,
+         "status": false,
+         "service": []
+      }
+   },
    "swarm": {
       "22h6mhenqi5vztok4slh43ogg": {
          "service": [],
