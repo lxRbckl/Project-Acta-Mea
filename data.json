@@ -5,6 +5,12 @@
          "isSwarm": false,
          "status": false,
          "service": []
+      },
+      "highlander15": {
+         "isHost": true,
+         "isSwarm": false,
+         "status": false,
+         "service": []
       }
    },
    "swarm": {
