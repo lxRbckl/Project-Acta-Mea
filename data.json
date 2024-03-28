@@ -1,14 +1,5 @@
 {
-   "host": {
-      "trial": {
-         "isHost": true,
-         "isSwarm": false,
-         "status": true,
-         "service": [
-            "demo"
-         ]
-      }
-   },
+   "host": {},
    "swarm": {
       "22h6mhenqi5vztok4slh43ogg": {
          "service": [],
