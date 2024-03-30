@@ -21,7 +21,7 @@
    "swarm": {
       "22h6mhenqi5vztok4slh43ogg": {
          "service": [],
-         "status": "ready",
+         "status": "down",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander03"
