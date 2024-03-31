@@ -60,7 +60,7 @@
       },
       "k6uwybdf7q635x2no8m1nlo6i": {
          "service": [],
-         "status": "ready",
+         "status": "down",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander08"
