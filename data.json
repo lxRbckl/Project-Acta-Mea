@@ -43,16 +43,16 @@
          "hostname": "highlander07"
       },
       "in85cpktp9myej19t35lrc32g": {
-         "service": [
-            "project-heimir"
-         ],
+         "service": [],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander06"
       },
       "j6pw1rf87ieonmniuidinrofd": {
-         "service": [],
+         "service": [
+            "project-heimir"
+         ],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
