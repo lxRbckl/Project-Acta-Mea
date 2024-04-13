@@ -20,17 +20,17 @@
    },
    "swarm": {
       "22h6mhenqi5vztok4slh43ogg": {
-         "service": [],
+         "service": [
+            "project-heimir"
+         ],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander03"
       },
       "4nsi4s9yvtru3k8e372vsgwlo": {
-         "service": [
-            "project-heimir"
-         ],
-         "status": "ready",
+         "service": [],
+         "status": "down",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander09"
