@@ -30,7 +30,7 @@
       },
       "4nsi4s9yvtru3k8e372vsgwlo": {
          "service": [],
-         "status": "down",
+         "status": "ready",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander09"
