@@ -42,7 +42,7 @@
       },
       "in85cpktp9myej19t35lrc32g": {
          "service": [],
-         "status": "down",
+         "status": "ready",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander06"
@@ -81,7 +81,7 @@
       },
       "tqjydd13c3jn0x1aunmqqpqo6": {
          "service": [],
-         "status": "down",
+         "status": "ready",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander01"
