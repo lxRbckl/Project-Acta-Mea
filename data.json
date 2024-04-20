@@ -49,7 +49,7 @@
       },
       "j6pw1rf87ieonmniuidinrofd": {
          "service": [],
-         "status": "down",
+         "status": "ready",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander10"
