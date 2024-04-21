@@ -55,9 +55,7 @@
          "hostname": "highlander10"
       },
       "k6uwybdf7q635x2no8m1nlo6i": {
-         "service": [
-            "project-heimir"
-         ],
+         "service": [],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
@@ -65,6 +63,8 @@
       },
       "k9llucn0r6yfvwqpmrze0fs1q": {
          "service": [
+            "project-heimir",
+            "project-ja",
             "project-acta-mea"
          ],
          "status": "ready",
@@ -87,9 +87,7 @@
          "hostname": "highlander01"
       },
       "usjxsedmbmtr1wbyk7vgvnaw1": {
-         "service": [
-            "project-ja"
-         ],
+         "service": [],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
