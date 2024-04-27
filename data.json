@@ -20,7 +20,9 @@
    },
    "swarm": {
       "22h6mhenqi5vztok4slh43ogg": {
-         "service": [],
+         "service": [
+            "project-acta-mea"
+         ],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
@@ -65,8 +67,7 @@
       },
       "k9llucn0r6yfvwqpmrze0fs1q": {
          "service": [
-            "project-ja",
-            "project-acta-mea"
+            "project-ja"
          ],
          "status": "ready",
          "isHost": false,
