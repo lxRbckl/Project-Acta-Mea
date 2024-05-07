@@ -20,9 +20,7 @@
    },
    "swarm": {
       "22h6mhenqi5vztok4slh43ogg": {
-         "service": [
-            "project-acta-mea"
-         ],
+         "service": [],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
@@ -36,14 +34,18 @@
          "hostname": "highlander09"
       },
       "gjfrh1qatc362vqovxoxh8ufp": {
-         "service": [],
+         "service": [
+            "project-acta-mea"
+         ],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander07"
       },
       "in85cpktp9myej19t35lrc32g": {
-         "service": [],
+         "service": [
+            "project-heimir"
+         ],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
@@ -80,9 +82,7 @@
          "hostname": "highlander04"
       },
       "tqjydd13c3jn0x1aunmqqpqo6": {
-         "service": [
-            "project-heimir"
-         ],
+         "service": [],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
