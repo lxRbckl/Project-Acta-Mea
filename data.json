@@ -27,9 +27,7 @@
          "hostname": "highlander03"
       },
       "4nsi4s9yvtru3k8e372vsgwlo": {
-         "service": [
-            "project-heimir"
-         ],
+         "service": [],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
@@ -89,7 +87,9 @@
          "hostname": "highlander01"
       },
       "usjxsedmbmtr1wbyk7vgvnaw1": {
-         "service": [],
+         "service": [
+            "project-heimir"
+         ],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
