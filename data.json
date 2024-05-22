@@ -29,16 +29,16 @@
          "hostname": "highlander03"
       },
       "4nsi4s9yvtru3k8e372vsgwlo": {
-         "service": [],
+         "service": [
+            "project-ja"
+         ],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander09"
       },
       "gjfrh1qatc362vqovxoxh8ufp": {
-         "service": [
-            "project-ja"
-         ],
+         "service": [],
          "status": "ready",
          "isHost": false,
          "isSwarm": true,
