@@ -74,7 +74,7 @@
       },
       "rlgdgn8ku8y9ajs39v1ernjfe": {
          "service": [],
-         "status": "ready",
+         "status": "down",
          "isHost": false,
          "isSwarm": true,
          "hostname": "highlander04"
