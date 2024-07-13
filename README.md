@@ -4,7 +4,7 @@
 ---
 
 [**`Python`**](https://github.com/lxRbckl/lxRbckl/blob/main/Python/README.md)
-[`pygithub`](https://github.com/lxRbckl/lxRbckl/blob/main/Python/pygithub.md)
-[`discord py`](https://github.com/lxRbckl/lxRbckl/blob/main/Python/discord-py.md)
+[`pygithub`](https://github.com/lxRbckl/lxRbckl/blob/main/Python/pygithub/README.md)
+[`discord py`](https://github.com/lxRbckl/lxRbckl/blob/main/Python/discord-py/README.md)
 
 # 
