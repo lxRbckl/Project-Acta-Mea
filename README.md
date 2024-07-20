@@ -1,9 +1,9 @@
-# Project Acta Mea 5
-> Administer servers and services via a Discord bot utilizing a remote data file. V5. Spring 2024.
+# Project Acta Mea 6
+> Administer servers and services via a Discord bot utilizing a remote data file. V5. Summer 2024.
 
 ---
 
-[**`JavaScript`**](https://github.com/lxRbckl/lxRbckl/blob/main/JavaScript/README.md)
+[**`TypeScript`**](https://github.com/lxRbckl/lxRbckl/blob/main/TypeScript/README.md)
 [`node cron`](https://github.com/lxRbckl/lxRbckl/blob/main/JavaScript/node-cron/README.md)
 [`discord js`](https://github.com/lxRbckl/lxRbckl/blob/main/JavaScript/discord-js/README.md)
 [`@octokit rest`](https://github.com/lxRbckl/lxRbckl/blob/main/JavaScript/@octokit-rest/README.md)
