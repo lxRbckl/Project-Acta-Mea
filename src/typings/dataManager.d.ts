@@ -1,6 +1,4 @@
 // typings <
-// export type Swarm = swarmNode[];
-
 export type Archive = archiveNode[];
 
 // >

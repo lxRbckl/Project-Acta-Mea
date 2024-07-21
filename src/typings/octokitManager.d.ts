@@ -1,3 +1,9 @@
+// import <
+import { Archive } from './dataManager';
+
+// >
+
+
 // typings <
 
 
@@ -5,10 +11,10 @@
 
 
 // interfaces <
-export interface ConstructorParams {
+export interface SetArchive {
 
+   data: Archive;
 
-   
 }
 
 // >
