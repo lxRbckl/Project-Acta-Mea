@@ -1,11 +1,13 @@
 // import <
 
+import { octokit } from 'lxrbckl';
 import Dockerode from 'dockerode';
+
 import dataConfig from '../configs/dataManagerConfig';
 import { 
    
    Swarm,
-   Archive,
+   Archive
 
 } from '../typings/dataManager';
 
@@ -15,17 +17,53 @@ import {
 export default class dataManager {
 
 
-   private dockerode: any;
-   private archive: Archive;
+   private _dockerode: any;
+   private _octokit: octokit;
+   private _archive: Archive;
 
 
    constructor() {
 
-      this.archive = [];
-      this.dockerode = new Dockerode({
+      this._archive = [];
+
+      this._dockerode = new Dockerode({
 
          port : dataConfig.port,
          host : dataConfig.host
+
+      });
+
+      this._octokit = new octokit({
+
+         owner : dataConfig.octokitOwner,
+         token : dataConfig.octokitToken
+
+      });
+
+   }
+
+
+   async getArchive(): Promise<any> {
+
+      return await this._octokit.repositoryGet({
+
+         file : dataConfig.octokitFile,
+         branch : dataConfig.octokitBranch,
+         repository : dataConfig.octokitRepository
+
+      });
+
+   }
+
+
+   async setArchive(): Promise<void> {
+
+      await this._octokit.respositorySet({
+
+         data : this._archive,
+         file : dataConfig.octokitFile,
+         branch : dataConfig.octokitBranch,
+         repository : dataConfig.octokitRepository
 
       });
 
@@ -36,36 +74,40 @@ export default class dataManager {
 
       var swarm: Swarm = {};
 
-      // iterate (docker swarm) <
-      for (const n of await this.dockerode.listNodes()) {
+      try {
 
-         swarm[n.ID] = {
+         // iterate (docker swarm) <
+         for (const n of await this._dockerode.listNodes()) {
 
-            'services' : [],
-            'state' : n.Status.State,
-            'name' : n.Description.Hostname,
-            'os' : n.Description.Platform.OS
+            swarm[n.ID] = {
 
-         };
+               'services' : [],
+               'state' : n.Status.State,
+               'name' : n.Description.Hostname,
+               'os' : n.Description.Platform.OS
 
-      }
+            };
 
-      // >
+         }
 
-      // iterate (tasks running) <
-      for (const t of await this.dockerode.listTasks()) {
+         // >
 
-         let service: string = '';
-         service = t.Spec.ContainerSpec.Image;
-         service = service.split('/')[1].split(':')[0];
+         // iterate (tasks running) <
+         for (const t of await this._dockerode.listTasks()) {
 
-         swarm[t.NodeID]['services'].push(service.replace('-', ' '));
+            let service: string = '';
+            service = t.Spec.ContainerSpec.Image;
+            service = service.split('/')[1].split(':')[0];
 
-      }
+            swarm[t.NodeID]['services'].push(service.replace('-', ' '));
 
-      // >
+         }
 
-      return swarm;
+         // >
+
+         return swarm;
+
+      } catch (error) {return swarm;}
       
    }
 

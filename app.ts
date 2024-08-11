@@ -10,8 +10,10 @@ import discordManager from './src/managers/discordManager';
 
 (async () => {
 
-   // const discordHandler: discordManager = new discordManager();
    const dataHandler: dataManager = new dataManager();
-   console.log(await dataHandler.getDockerSwarm());
+   // const discordHandler: discordManager = new discordManager();
+
+   const x: any = await dataHandler.getDockerSwarm();
+   console.log(x);
 
 })();

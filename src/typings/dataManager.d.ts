@@ -20,20 +20,11 @@ interface Swarm {
 
 }
 
-interface archiveService {
-
-   'url'?: string;
-   'name': string;
-
-}
-
 interface archiveNode {
 
    'id': string;
    'os': string;
-   'type': string;
    'state': boolean;
-   'computer': string;
    'service': Service[];
 
 }
