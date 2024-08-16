@@ -3,13 +3,16 @@
 import { octokit } from 'lxrbckl';
 import Dockerode from 'dockerode';
 
-import dataConfig from '../configs/dataManagerConfig';
 import { 
    
+   node,
    Swarm,
-   Archive
+   Archive,
+   nodeArray,
+   nodeString
 
 } from '../typings/dataManager';
+import dataConfig from '../configs/dataManagerConfig';
 
 // >
 
@@ -18,13 +21,15 @@ export default class dataManager {
 
 
    private _dockerode: any;
-   private _octokit: octokit;
    private _archive: Archive;
+   private _octokit: octokit;
+   private _arrayProperties: string[];
 
 
    constructor() {
 
-      this._archive = [];
+      this._archive = {};
+      this._arrayProperties = ['services'];
 
       this._dockerode = new Dockerode({
 
@@ -43,31 +48,31 @@ export default class dataManager {
    }
 
 
-   async getArchive(): Promise<any> {
+   // async getArchive(): Promise<Archive> {
 
-      return await this._octokit.repositoryGet({
+   //    return await this._octokit.repositoryGet({
 
-         file : dataConfig.octokitFile,
-         branch : dataConfig.octokitBranch,
-         repository : dataConfig.octokitRepository
+   //       file : dataConfig.octokitFile,
+   //       branch : dataConfig.octokitBranch,
+   //       repository : dataConfig.octokitRepository
 
-      });
+   //    });
 
-   }
+   // }
 
 
-   async setArchive(): Promise<void> {
+   // async setArchive(): Promise<void> {
 
-      await this._octokit.respositorySet({
+   //    await this._octokit.respositorySet({
 
-         data : this._archive,
-         file : dataConfig.octokitFile,
-         branch : dataConfig.octokitBranch,
-         repository : dataConfig.octokitRepository
+   //       data : this._archive,
+   //       file : dataConfig.octokitFile,
+   //       branch : dataConfig.octokitBranch,
+   //       repository : dataConfig.octokitRepository
 
-      });
+   //    });
 
-   }
+   // }
 
 
    async getDockerSwarm(): Promise<Swarm> {
@@ -82,7 +87,8 @@ export default class dataManager {
             swarm[n.ID] = {
 
                'services' : [],
-               'state' : n.Status.State,
+               'type' : 'swarm',
+               'status' : n.Status.State,
                'name' : n.Description.Hostname,
                'os' : n.Description.Platform.OS
 
@@ -111,5 +117,85 @@ export default class dataManager {
       
    }
 
+
+   async setNode(name: string): Promise<boolean> {
+
+      switch (!(Object.keys(this._archive)).includes(name)) {
+
+         case (true):
+
+            this._archive[name] = {
+
+               'os' : '',
+               'type' : 'host',
+               'services' : [],
+               'status' : 'online'
+
+            };
+
+            return true;
+
+         case (false): return false;
+
+      }
+
+   }
+
+
+   async getNode(name: string): Promise<node> {return this._archive[name];}
+
+
+   async delNode(name: string): Promise<void> {delete this._archive[name];}
+
+
+   async setProperty(
+      
+      name: string,
+      value: string,
+      property: string
+   
+   ): Promise<void> {
+
+      switch (this._arrayProperties.includes(property)) {
+
+         case (false):
+
+            this._archive[name][(property as nodeString)] = value;
+            break;
+
+         case (true):
+
+            this._archive[name][(property as nodeArray)].push(value);
+            break;
+
+      }
+
+   }
+
+
+   // async delProperty(
+      
+   //    name: string,
+   //    value: string,
+   //    property: string
+   
+   // ): Promise<void> {
+
+   //    switch (this._arrayProperties.includes(property)) {
+
+   //       case (true):
+
+   //          let services: string[] = this._archive[name][(property as nodeArray)];
+   //          this._archive[name][(property as nodeArray)] = services.filter(i => i != value);
+   //          break;
+
+   //       case (false):
+
+
+   //          break;
+
+   //    }
+
+   // }
 
 }

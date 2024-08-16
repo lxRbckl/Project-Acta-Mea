@@ -13,7 +13,9 @@ import discordManager from './src/managers/discordManager';
    const dataHandler: dataManager = new dataManager();
    // const discordHandler: discordManager = new discordManager();
 
-   const x: any = await dataHandler.getDockerSwarm();
-   console.log(x);
+   // const x: any = await dataHandler.getDockerSwarm();
+   // console.log(x);
+
+   dataHandler.setNode('canada');
 
 })();

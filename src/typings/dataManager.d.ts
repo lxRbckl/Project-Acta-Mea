@@ -1,31 +1,30 @@
 // typings <
-export type Archive = archiveNode[];
+export type nodeArray = 'services';
+export type nodeString = 'os' | 'type' | 'status';
 
 // >
 
 
 // interfaces <
-interface swarmNode {
+export interface node {
 
    'os': string;
-   'name': string;
-   'state': string;
+   'type': string;
+   'name'?: string;
+   'status': string;
    'services': string[];
 
 }
 
-interface Swarm {
+export interface Swarm {
 
-   [key: string]: swarmNode
+   [key: string]: node;
 
 }
 
-interface archiveNode {
+export interface Archive {
 
-   'id': string;
-   'os': string;
-   'state': boolean;
-   'service': Service[];
+   [key: string]: node;
 
 }
 
