@@ -173,29 +173,17 @@ export default class dataManager {
    }
 
 
-   // async delProperty(
-      
-   //    name: string,
-   //    value: string,
-   //    property: string
-   
-   // ): Promise<void> {
+   async delService(
 
-   //    switch (this._arrayProperties.includes(property)) {
+      name: string,
+      value: string,
+      property: string
 
-   //       case (true):
+   ): Promise<void> {
 
-   //          let services: string[] = this._archive[name][(property as nodeArray)];
-   //          this._archive[name][(property as nodeArray)] = services.filter(i => i != value);
-   //          break;
+      let services: string[] = this._archive[name][(property as nodeArray)];
+      this._archive[name][(property as nodeArray)] = services.filter(i => i != value);
 
-   //       case (false):
-
-
-   //          break;
-
-   //    }
-
-   // }
+   }
 
 }
