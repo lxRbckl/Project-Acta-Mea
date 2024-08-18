@@ -48,31 +48,49 @@ export default class dataManager {
    }
 
 
-   // async getArchive(): Promise<Archive> {
+   async getArchive(): Promise<Archive> {
 
-   //    return await this._octokit.repositoryGet({
+      return await this._octokit.repositoryGet({
 
-   //       file : dataConfig.octokitFile,
-   //       branch : dataConfig.octokitBranch,
-   //       repository : dataConfig.octokitRepository
+         file : dataConfig.octokitFile,
+         branch : dataConfig.octokitBranch,
+         repository : dataConfig.octokitRepository
 
-   //    });
+      });
 
-   // }
+   }
 
 
-   // async setArchive(): Promise<void> {
+   async setArchive(): Promise<void> {
 
-   //    await this._octokit.respositorySet({
+      await this._octokit.respositorySet({
 
-   //       data : this._archive,
-   //       file : dataConfig.octokitFile,
-   //       branch : dataConfig.octokitBranch,
-   //       repository : dataConfig.octokitRepository
+         data : this._archive,
+         file : dataConfig.octokitFile,
+         branch : dataConfig.octokitBranch,
+         repository : dataConfig.octokitRepository
 
-   //    });
+      });
 
-   // }
+   }
+
+
+   async setDockerSwarm(swarm: Swarm): Promise<void> {
+
+      for (const n of Object.values(swarm)) {
+
+         this._archive[n.name!] = {
+
+            'os' : n.os,
+            'type' : n.type,
+            'status' : n.status,
+            'services' : n.services
+
+         };
+
+      }
+
+   }
 
 
    async getDockerSwarm(): Promise<Swarm> {
@@ -115,6 +133,17 @@ export default class dataManager {
 
       } catch (error) {return swarm;}
       
+   }
+
+
+   async delDockerSwarm(): Promise<void> {
+
+      for (const [k, n] of Object.entries(this._archive)) {
+
+         if (n.type == 'swarm') {delete this._archive[k]}
+
+      }
+
    }
 
 
