@@ -9,7 +9,8 @@ import {
    Swarm,
    Archive,
    nodeArray,
-   nodeString
+   nodeString,
+   DataManager
 
 } from '../typings/dataManager';
 import dataConfig from '../configs/dataManagerConfig';
@@ -17,7 +18,7 @@ import dataConfig from '../configs/dataManagerConfig';
 // >
 
 
-export default class dataManager {
+export default class dataManager implements DataManager {
 
 
    private _dockerode: any;
@@ -48,7 +49,7 @@ export default class dataManager {
    }
 
 
-   async getArchive(): Promise<Archive> {
+   public async getArchive(): Promise<Archive> {
 
       return await this._octokit.repositoryGet({
 
@@ -61,7 +62,10 @@ export default class dataManager {
    }
 
 
-   async setArchive(): Promise<void> {
+   public async setArchive(): Promise<void> {
+
+      await this._delDockerSwarm();
+      await this._setDockerSwarm(await this._getDockerSwarm());
 
       await this._octokit.respositorySet({
 
@@ -75,7 +79,7 @@ export default class dataManager {
    }
 
 
-   async setDockerSwarm(swarm: Swarm): Promise<void> {
+   private async _setDockerSwarm(swarm: Swarm): Promise<void> {
 
       for (const n of Object.values(swarm)) {
 
@@ -93,7 +97,7 @@ export default class dataManager {
    }
 
 
-   async getDockerSwarm(): Promise<Swarm> {
+   private async _getDockerSwarm(): Promise<Swarm> {
 
       var swarm: Swarm = {};
 
@@ -136,7 +140,7 @@ export default class dataManager {
    }
 
 
-   async delDockerSwarm(): Promise<void> {
+   private async _delDockerSwarm(): Promise<void> {
 
       for (const [k, n] of Object.entries(this._archive)) {
 
@@ -147,7 +151,7 @@ export default class dataManager {
    }
 
 
-   async setNode(name: string): Promise<boolean> {
+   public async setNode(name: string): Promise<boolean> {
 
       switch (!(Object.keys(this._archive)).includes(name)) {
 
@@ -171,13 +175,13 @@ export default class dataManager {
    }
 
 
-   async getNode(name: string): Promise<node> {return this._archive[name];}
+   public async getNode(name: string): Promise<node> {return this._archive[name];}
 
 
-   async delNode(name: string): Promise<void> {delete this._archive[name];}
+   public async delNode(name: string): Promise<void> {delete this._archive[name];}
 
 
-   async setProperty(
+   public async setProperty(
       
       name: string,
       value: string,
@@ -202,16 +206,15 @@ export default class dataManager {
    }
 
 
-   async delService(
+   public async delPropertyServices(
 
       name: string,
-      value: string,
-      property: string
+      value: string
 
    ): Promise<void> {
 
-      let services: string[] = this._archive[name][(property as nodeArray)];
-      this._archive[name][(property as nodeArray)] = services.filter(i => i != value);
+      let services: string[] = this._archive[name]['services'];
+      this._archive[name]['services'] = services.filter(i => i != value);
 
    }
 

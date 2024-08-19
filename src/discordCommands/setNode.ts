@@ -1,15 +1,28 @@
 // import <
-import dataManager from '../managers/dataManager';
+import { DataManager } from '../typings/dataManager';
 
 // >
 
 
-export default class setNode extends dataManager {
+export default class setNode {
 
    constructor() {
 
-      super();
+
       
+   }
+
+
+   context() {
+
+      return {
+
+         type : 1,
+         name : 'set',
+         description : 'ok'
+
+      }
+
    }
 
 }

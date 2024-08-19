@@ -5,10 +5,6 @@
 
 
 // interfaces <
-export interface ConstructorParams {
 
-
-   
-}
 
 // >

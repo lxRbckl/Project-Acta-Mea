@@ -1,14 +1,25 @@
 // import <
-import dataManager from '../managers/dataManager';
+
 
 // >
 
 
-export default class restart extends dataManager {
+export default class restart {
 
    constructor() {
 
-      super();
+
+
+   }
+
+
+   context() {
+
+      return {
+
+
+         
+      }
 
    }
 

@@ -1,15 +1,26 @@
 // import <
-import dataManager from '../managers/dataManager';
+import { DataManager } from '../typings/dataManager';
 
 // >
 
 
-export default class getNode extends dataManager {
+export default class getNode {
 
    constructor() {
 
-      super();
+
       
+   }
+
+
+   context() {
+
+      return {
+
+
+         
+      }
+
    }
 
 }

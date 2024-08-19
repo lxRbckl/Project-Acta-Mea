@@ -1,15 +1,26 @@
 // import <
-import dataManager from '../managers/dataManager';
+import { DataManager } from '../typings/dataManager';
 
 // >
 
 
-export default class delNode extends dataManager {
+export default class delNode {
 
    constructor() {
 
-      super();
+
       
+   }
+
+
+   context() {
+
+      return {
+
+
+         
+      }
+
    }
 
 }
