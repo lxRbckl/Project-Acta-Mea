@@ -52,8 +52,17 @@ export default class setProperty extends getNode {
                type : 3,
                required : true,
                name : 'property',
-               choices : this.properties,
-               description : 'property of node'
+               description : 'property of node',
+               choices : this.properties.map(p => (
+
+                  {
+
+                     name : p,
+                     value : p
+
+                  }
+
+               ))
 
             }
 
