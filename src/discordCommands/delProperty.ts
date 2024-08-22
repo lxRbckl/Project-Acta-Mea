@@ -1,11 +1,11 @@
 // import <
-import getNode from './getNode';
 import dataManager from '../managers/dataManager';
+import setProperty from '../discordCommands/setProperty';
 
 // >
 
 
-export default class delProperty extends getNode {
+export default class delProperty extends setProperty {
 
 
    constructor() {
@@ -22,7 +22,31 @@ export default class delProperty extends getNode {
 
       return {
 
+         type : 1,
+         name : this.name,
+         description : this.description,
+         options : [
 
+            {
+
+               type : 3,
+               name : 'name',
+               required : true,
+               choices : this.nodeChoices,
+               description : 'name of node'
+
+            },
+            {
+
+               type : 3,
+               required : true,
+               name : 'property',
+               choices : this.properties,
+               description : 'property of node'
+
+            }
+
+         ]
          
       };
 

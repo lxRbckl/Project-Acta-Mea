@@ -1,6 +1,7 @@
 // import <
 import { discord } from 'lxrbckl';
 
+import restart from '../discordCommands/restart';
 import setNode from '../discordCommands/setNode';
 import getNode from '../discordCommands/getNode';
 import delNode from '../discordCommands/delNode';
@@ -31,11 +32,12 @@ export default class discordManager {
          applicationId : discordConfig.applicationId,
          commands : [
 
+            new setProperty(),
+            new delProperty(),
+            new restart(),
             new setNode(),
             new getNode(),
-            new delNode(),
-            // new setProperty(),
-            // new delProperty()
+            new delNode()
             
          ]
 
