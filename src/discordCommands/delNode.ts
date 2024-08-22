@@ -39,7 +39,7 @@ export default class delNode extends getNode {
 
          ]
          
-      }
+      };
 
    }
 

@@ -24,7 +24,7 @@ export default class setProperty extends getNode {
 
 
          
-      }
+      };
 
    }
 

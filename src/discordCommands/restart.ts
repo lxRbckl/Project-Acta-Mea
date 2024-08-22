@@ -14,32 +14,20 @@ export default class restart {
    constructor() {
 
       this._name = 'restart';
-      this._description = '';
+      this._description = 'update bot and data';
 
    }
 
 
    context(): any {
 
-      // return {
+      return {
 
-      //    type : 1,
-      //    name : this._name,
-      //    description : this._description,
-      //    options : [
-
-      //       {
-
-      //          type : 3,
-      //          name : 'name',
-      //          required : true,
-      //          choices : super().
-
-      //       }
-
-      //    ]
+         type : 1,
+         name : this._name,
+         description : this._description
          
-      // }
+      };
 
    }
 

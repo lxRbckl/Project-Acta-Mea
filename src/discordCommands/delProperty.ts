@@ -24,7 +24,7 @@ export default class delProperty extends getNode {
 
 
          
-      }
+      };
 
    }
 
