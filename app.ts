@@ -10,6 +10,6 @@ import discordManager from './src/managers/discordManager';
 (async () => {
 
    const discordHandler: discordManager = new discordManager();
-   discordHandler.run();
+   await discordHandler.run();
 
 })();

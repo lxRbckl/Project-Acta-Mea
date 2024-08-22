@@ -5,16 +5,16 @@ import dataManager from '../managers/dataManager';
 // >
 
 
-export default class setProperty extends getNode {
+export default class delProperty extends getNode {
 
 
    constructor() {
 
       super();
 
-      this.name = 'set-property';
-      this.description = 'change property of existing node';
-
+      this.name = 'del-property';
+      this.description = 'delete property of existing node';
+      
    }
 
 
@@ -32,7 +32,7 @@ export default class setProperty extends getNode {
    run(dataHandler: dataManager): any {
 
 
-
+      
    }
 
 }

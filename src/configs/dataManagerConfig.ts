@@ -11,7 +11,7 @@ const dataManagerConfig: {
 
 } = {
 
-   port :'2375',
+   port : '2375',
    host : '192.168.86.214',
 
    octokitBranch : 'V6',

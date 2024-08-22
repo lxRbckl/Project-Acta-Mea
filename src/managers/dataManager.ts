@@ -8,9 +8,8 @@ import {
    node,
    Swarm,
    Archive,
-   nodeArray,
-   nodeString,
-   DataManager
+   NodeArray,
+   NodeString
 
 } from '../typings/dataManager';
 import dataConfig from '../configs/dataManagerConfig';
@@ -18,7 +17,7 @@ import dataConfig from '../configs/dataManagerConfig';
 // >
 
 
-export default class dataManager implements DataManager {
+export default class dataManager {
 
 
    private _dockerode: any;
@@ -193,12 +192,12 @@ export default class dataManager implements DataManager {
 
          case (false):
 
-            this._archive[name][(property as nodeString)] = value;
+            this._archive[name][(property as NodeString)] = value;
             break;
 
          case (true):
 
-            this._archive[name][(property as nodeArray)].push(value);
+            this._archive[name][(property as NodeArray)].push(value);
             break;
 
       }
