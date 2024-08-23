@@ -66,15 +66,12 @@ export default class delProperty extends setProperty {
 
       name,
       service,
-      discord,
       property,
       dataHandler
 
    }: DelProperty): any {
 
-      console.log(name);
-      console.log(service);
-      console.log(property);
+
       
    }
 

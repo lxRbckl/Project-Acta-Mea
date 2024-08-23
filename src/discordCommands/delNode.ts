@@ -47,13 +47,12 @@ export default class delNode extends getNode {
    run({
 
       name,
-      discord,
       dataHandler
 
    }: DelNode): any {
 
-      console.log(name);
 
+      
    }
 
 }

@@ -77,15 +77,12 @@ export default class setProperty extends getNode {
 
       name,
       service,
-      discord,
       property,
       dataHandler
 
    }: SetProperty): any {
 
-      console.log(name);
-      console.log(service);
-      console.log(property);
+
 
    }
 

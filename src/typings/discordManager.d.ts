@@ -23,7 +23,6 @@ interface NodeChoice {
 export interface SetNode {
 
    name: string;
-   discord: discord;
    dataHandler: dataManager;
 
 }
@@ -31,7 +30,6 @@ export interface SetNode {
 export interface GetNode {
 
    name: string;
-   discord: discord;
    dataHandler: dataManager;
 
 }
@@ -39,7 +37,6 @@ export interface GetNode {
 export interface DelNode {
 
    name: string;
-   discord: discord;
    dataHandler: dataManager;
 
 }
@@ -49,7 +46,6 @@ export interface SetProperty {
    name: string;
    service?: string;
    property: string;
-   discord: discord;
    dataHandler: dataManager;
 
 }
@@ -57,7 +53,6 @@ export interface SetProperty {
 export interface DelProperty {
 
    name: string;
-   discord: discord;
    service?: string;
    property: string;
    dataHandler: dataManager;
@@ -66,7 +61,6 @@ export interface DelProperty {
 
 export interface Restart {
 
-   discord: discord;
    (...args: any[]): any;
    
 }

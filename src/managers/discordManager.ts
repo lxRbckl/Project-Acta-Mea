@@ -61,13 +61,17 @@ export default class discordManager {
       // listen for interactions <
       this._discord.registerInteractionCreate(async (interaction) => {
 
-         await this._discord.mappedCommands[interaction.commandName].run({
+         await interaction.reply({
 
-            discord : this._discord,
-            dataHandler : this._dataHandler,
-            name : interaction.options.get('name')?.value,
-            service : interaction.options.get('service')?.value,
-            property : interaction.options.get('property')?.value
+            ephemeral : true,
+            content : await this._discord.mappedCommands[interaction.commandName].run({
+
+               dataHandler : this._dataHandler,
+               name : interaction.options.get('name')?.value,
+               service : interaction.options.get('service')?.value,
+               property : interaction.options.get('property')?.value
+
+            })
 
          });
          

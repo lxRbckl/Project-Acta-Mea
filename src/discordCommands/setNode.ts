@@ -47,12 +47,11 @@ export default class setNode {
    run({
 
       name,
-      discord,
       dataHandler
 
    }: SetNode): any {
 
-      console.log(name);
+      
 
    }
 

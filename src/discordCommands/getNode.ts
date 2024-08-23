@@ -74,13 +74,12 @@ export default class getNode extends setNode {
    run({
 
       name,
-      discord,
       dataHandler
 
    }: GetNode): any {
 
-      console.log(name);
 
+      
    }
 
 }

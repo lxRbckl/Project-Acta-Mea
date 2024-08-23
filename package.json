@@ -11,6 +11,6 @@
   "dependencies": {
     "@types/dockerode": "^3.3.30",
     "dockerode": "^4.0.2",
-    "lxrbckl": "^9.7.0"
+    "lxrbckl": "^9.7.8"
   }
 }
