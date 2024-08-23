@@ -1,6 +1,6 @@
 // import <
 import getNode from './getNode';
-import dataManager from '../managers/dataManager';
+import { SetProperty } from '../typings/discordManager';
 
 // >
 
@@ -73,9 +73,19 @@ export default class setProperty extends getNode {
    }
 
 
-   run(dataHandler: dataManager): any {
+   run({
 
+      name,
+      service,
+      discord,
+      property,
+      dataHandler
 
+   }: SetProperty): any {
+
+      console.log(name);
+      console.log(service);
+      console.log(property);
 
    }
 

@@ -1,7 +1,7 @@
 // import <
 import setNode from './setNode';
 import dataManager from '../managers/dataManager';
-import { NodeChoices } from '../typings/discordManager';
+import { GetNode, NodeChoices } from '../typings/discordManager';
 
 // >
 
@@ -71,9 +71,15 @@ export default class getNode extends setNode {
    }
 
 
-   run(dataHandler: dataManager): any {
+   run({
 
+      name,
+      discord,
+      dataHandler
 
+   }: GetNode): any {
+
+      console.log(name);
 
    }
 

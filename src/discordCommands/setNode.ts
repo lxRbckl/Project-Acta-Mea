@@ -1,5 +1,5 @@
 // import <
-import dataManager from '../managers/dataManager';
+import { SetNode } from '../typings/discordManager';
 
 // >
 
@@ -44,9 +44,15 @@ export default class setNode {
    }
 
 
-   run(dataHandler: dataManager): any {
+   run({
 
+      name,
+      discord,
+      dataHandler
 
+   }: SetNode): any {
+
+      console.log(name);
 
    }
 

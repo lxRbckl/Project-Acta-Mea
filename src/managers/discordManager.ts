@@ -24,7 +24,6 @@ export default class discordManager {
    constructor() {
 
       this._dataHandler = new dataHandler();
-
       this._discord = new discord({
 
          guildId : discordConfig.guildId,
@@ -46,25 +45,31 @@ export default class discordManager {
    }
 
 
-   public async run(): Promise<void> {
+   async run(): Promise<void> {
 
       // login <
       // register choices <
       // register commands <
+      // map registered commands <
       this._discord.login({token : discordConfig.token});
       this._discord.registerCommandChoices();
       this._discord.registerCommands();
+      this._discord.mapCommands();
 
       // >
 
       // listen for interactions <
       this._discord.registerInteractionCreate(async (interaction) => {
 
-         let name: string = interaction.options.get('name')?.value;
-         let service: string = interaction.options.get('service')?.value;
-         let property: string = interaction.options.get('property')?.value;
+         await this._discord.mappedCommands[interaction.commandName].run({
 
-         console.log(interaction.commandName);
+            discord : this._discord,
+            dataHandler : this._dataHandler,
+            name : interaction.options.get('name')?.value,
+            service : interaction.options.get('service')?.value,
+            property : interaction.options.get('property')?.value
+
+         });
          
       });
 

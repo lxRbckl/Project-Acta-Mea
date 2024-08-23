@@ -212,7 +212,7 @@ export default class dataManager {
 
    ): Promise<void> {
 
-      let services: string[] = this._archive[name]['services'];
+      const services: string[] = this._archive[name]['services'];
       this._archive[name]['services'] = services.filter(i => i != value);
 
    }

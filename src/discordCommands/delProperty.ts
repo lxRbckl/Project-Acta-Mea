@@ -1,5 +1,5 @@
 // import <
-import dataManager from '../managers/dataManager';
+import { DelProperty } from '../typings/discordManager';
 import setProperty from '../discordCommands/setProperty';
 
 // >
@@ -62,9 +62,19 @@ export default class delProperty extends setProperty {
    }
 
 
-   run(dataHandler: dataManager): any {
+   run({
 
+      name,
+      service,
+      discord,
+      property,
+      dataHandler
 
+   }: DelProperty): any {
+
+      console.log(name);
+      console.log(service);
+      console.log(property);
       
    }
 

@@ -1,6 +1,6 @@
 // import <
 import getNode from './getNode';
-import dataManager from '../managers/dataManager';
+import { DelNode } from '../typings/discordManager';
 
 // >
 
@@ -44,9 +44,15 @@ export default class delNode extends getNode {
    }
 
 
-   run(dataHandler: dataManager): any {
+   run({
 
+      name,
+      discord,
+      dataHandler
 
+   }: DelNode): any {
+
+      console.log(name);
 
    }
 
