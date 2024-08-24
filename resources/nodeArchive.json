@@ -2,9 +2,7 @@
    "change": {
       "os": "good",
       "type": "host",
-      "services": [
-         "project west"
-      ],
+      "services": [],
       "status": "online"
    },
    "highlander02": {
