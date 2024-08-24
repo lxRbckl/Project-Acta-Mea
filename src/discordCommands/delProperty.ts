@@ -53,6 +53,14 @@ export default class delProperty extends setProperty {
 
                ))
 
+            },
+            {
+
+               type : 3,
+               name : 'value',
+               required : true,
+               description : 'value of property'
+
             }
 
          ]
@@ -62,16 +70,26 @@ export default class delProperty extends setProperty {
    }
 
 
-   run({
+   async run({
 
       name,
+      value,
       service,
       property,
       dataHandler
 
-   }: DelProperty): any {
+   }: DelProperty): Promise<any> {
 
+      dataHandler.delProperty({
 
+         name : name,
+         property : property,
+         value : value || (service as string)
+
+      });
+      await dataHandler.setArchive();
+
+      return `\`\`\`${value} was removed from ${name}\`\`\``;
       
    }
 

@@ -47,12 +47,17 @@ export default class discordManager {
 
    async run(): Promise<void> {
 
+      // fetch data <
+      await this._dataHandler.getArchive();
+
+      // >
+
       // login <
       // register choices <
       // register commands <
       // map registered commands <
       this._discord.login({token : discordConfig.token});
-      this._discord.registerCommandChoices();
+      await this._discord.registerCommandChoices();
       this._discord.registerCommands();
       this._discord.mapCommands();
 
@@ -68,12 +73,18 @@ export default class discordManager {
 
                dataHandler : this._dataHandler,
                name : interaction.options.get('name')?.value,
+               value : interaction.options.get('value')?.value,
                service : interaction.options.get('service')?.value,
                property : interaction.options.get('property')?.value
 
             })
 
          });
+
+         // update data <
+         await this._dataHandler.getArchive();
+
+         // >
          
       });
 

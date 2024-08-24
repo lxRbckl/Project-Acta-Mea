@@ -44,6 +44,7 @@ export interface DelNode {
 export interface SetProperty {
 
    name: string;
+   value: string;
    service?: string;
    property: string;
    dataHandler: dataManager;
@@ -53,6 +54,7 @@ export interface SetProperty {
 export interface DelProperty {
 
    name: string;
+   value: string;
    service?: string;
    property: string;
    dataHandler: dataManager;

@@ -6,7 +6,7 @@ export type NodeString = 'os' | 'type' | 'status';
 
 
 // interfaces <
-export interface node {
+export interface Node {
 
    'os': string;
    'type': string;
@@ -18,14 +18,31 @@ export interface node {
 
 export interface Swarm {
 
-   [key: string]: node;
+   [key: string]: Node;
 
 }
 
 export interface Archive {
 
-   [key: string]: node;
+   [key: string]: Node;
 
 }
+
+
+export interface NodeFunction {
+
+   name: string;
+
+}
+
+
+export interface PropertyFunction {
+
+   name: string;
+   value: string;
+   property: string;
+
+}
+
 
 // >

@@ -4,11 +4,13 @@ import { octokit } from 'lxrbckl';
 
 import { 
    
-   node,
+   Node,
    Swarm,
    Archive,
    NodeArray,
-   NodeString
+   NodeString,
+   NodeFunction,
+   PropertyFunction
 
 } from '../typings/dataManager';
 import dataConfig from '../configs/dataManagerConfig';
@@ -49,13 +51,15 @@ export default class dataManager {
 
    public async getArchive(): Promise<Archive> {
 
-      return await this._octokit.repositoryGet({
+      this._archive = await this._octokit.repositoryGet({
 
          file : dataConfig.octokitFile,
          branch : dataConfig.octokitBranch,
          repository : dataConfig.octokitRepository
 
       });
+
+      return this._archive;
 
    }
 
@@ -66,8 +70,6 @@ export default class dataManager {
       await this._setDockerSwarm(await this._getDockerSwarm());
 
       await this._octokit.respositorySet({
-
-         displayError : true,
 
          data : this._archive,
          file : dataConfig.octokitFile,
@@ -151,7 +153,7 @@ export default class dataManager {
    }
 
 
-   public setNode(name: string): boolean {
+   public setNode({name}: NodeFunction): boolean {
 
       switch (!(Object.keys(this._archive)).includes(name)) {
 
@@ -175,19 +177,19 @@ export default class dataManager {
    }
 
 
-   public getNode(name: string): node {return this._archive[name];}
+   public getNode({name}: NodeFunction): Node {return this._archive[name];}
 
 
-   public delNode(name: string): void {delete this._archive[name];}
+   public delNode({name}: NodeFunction): void {delete this._archive[name];}
 
 
-   public setProperty(
-      
-      name: string,
-      value: string,
-      property: string
-   
-   ): void {
+   public setProperty({
+
+      name,
+      value,
+      property
+
+   }: PropertyFunction): void {
 
       switch (this._arrayProperties.includes(property)) {
 
@@ -206,13 +208,15 @@ export default class dataManager {
    }
 
 
-   public delPropertyServices(
+   public delProperty({
 
-      name: string,
-      value: string
+      name,
+      value,
+      property
 
-   ): void {
+   }: PropertyFunction): void {
 
+      // we assume property is 'service' //
       const services: string[] = this._archive[name]['services'];
       this._archive[name]['services'] = services.filter(i => i != value);
 

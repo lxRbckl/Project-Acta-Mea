@@ -44,14 +44,17 @@ export default class delNode extends getNode {
    }
 
 
-   run({
+   async run({
 
       name,
       dataHandler
 
-   }: DelNode): any {
+   }: DelNode): Promise<any> {
 
+      dataHandler.delNode({name : name});
+      await dataHandler.setArchive();
 
+      return `\`\`\`json\n${name} was deleted.\`\`\``;
       
    }
 

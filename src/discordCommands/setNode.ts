@@ -1,4 +1,5 @@
 // import <
+import restart from '../discordCommands/restart';
 import { SetNode } from '../typings/discordManager';
 
 // >
@@ -51,14 +52,16 @@ export default class setNode {
 
    }: SetNode): Promise<string> {
 
-      switch (dataHandler.setNode(name)) {
+      switch (dataHandler.setNode({name : name})) {
 
          case (true): 
          
             await dataHandler.setArchive();
-            return `\`\`\`Node ${name} was created.\`\`\``;
+            return `\`\`\`${name} was created.\`\`\``;
             
-         case (false): return `\`\`\`Node ${name} already exists.\`\`\``;
+         case (false): 
+         
+            return `\`\`\`${name} already exists.\`\`\``;
 
       }
 

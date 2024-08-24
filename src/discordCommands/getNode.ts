@@ -71,14 +71,22 @@ export default class getNode extends setNode {
    }
 
 
-   run({
+   async run({
 
       name,
       dataHandler
 
-   }: GetNode): any {
+   }: GetNode): Promise<any> {
 
+      const node: string = JSON.stringify(
 
+         dataHandler.getNode({name : name}),
+         null,
+         3
+
+      );
+
+      return `\`\`\`json\n${node}\`\`\``;
       
    }
 
