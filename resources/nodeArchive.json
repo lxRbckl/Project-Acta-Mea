@@ -11,6 +11,12 @@
       "services": [],
       "status": "online"
    },
+   "thom": {
+      "os": "",
+      "type": "host",
+      "services": [],
+      "status": "online"
+   },
    "highlander03": {
       "os": "linux",
       "type": "swarm",
