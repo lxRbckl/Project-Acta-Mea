@@ -1,3 +1,82 @@
 {
-   
+   "change": {
+      "os": "",
+      "type": "host",
+      "services": [],
+      "status": "online"
+   },
+   "highlander03": {
+      "os": "linux",
+      "type": "swarm",
+      "status": "ready",
+      "services": [
+         "project ja"
+      ]
+   },
+   "highlander09": {
+      "os": "linux",
+      "type": "swarm",
+      "status": "ready",
+      "services": []
+   },
+   "highlander07": {
+      "os": "linux",
+      "type": "swarm",
+      "status": "ready",
+      "services": [
+         "project ja",
+         "project ja",
+         "project ja"
+      ]
+   },
+   "highlander06": {
+      "os": "linux",
+      "type": "swarm",
+      "status": "ready",
+      "services": [
+         "project heimir"
+      ]
+   },
+   "highlander10": {
+      "os": "linux",
+      "type": "swarm",
+      "status": "ready",
+      "services": [
+         "project madgarden"
+      ]
+   },
+   "highlander08": {
+      "os": "linux",
+      "type": "swarm",
+      "status": "ready",
+      "services": []
+   },
+   "highlander14": {
+      "os": "linux",
+      "type": "swarm",
+      "status": "ready",
+      "services": []
+   },
+   "highlander04": {
+      "os": "linux",
+      "type": "swarm",
+      "status": "ready",
+      "services": [
+         "project aclg"
+      ]
+   },
+   "highlander01": {
+      "os": "linux",
+      "type": "swarm",
+      "status": "ready",
+      "services": [
+         "project ja"
+      ]
+   },
+   "highlander11": {
+      "os": "linux",
+      "type": "swarm",
+      "status": "down",
+      "services": []
+   }
 }
