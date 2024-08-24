@@ -1,6 +1,5 @@
 // import <
 
-
 // >
 
 
@@ -32,10 +31,6 @@ export default class restart {
    }
 
 
-   run(): any {
-
-
-
-   }
+   run(): any {process.exit(0);}
 
 }

@@ -44,14 +44,23 @@ export default class setNode {
    }
 
 
-   run({
+   async run({
 
       name,
       dataHandler
 
-   }: SetNode): any {
+   }: SetNode): Promise<string> {
 
-      
+      switch (dataHandler.setNode(name)) {
+
+         case (true): 
+         
+            await dataHandler.setArchive();
+            return `\`\`\`Node ${name} was created.\`\`\``;
+            
+         case (false): return `\`\`\`Node ${name} already exists.\`\`\``;
+
+      }
 
    }
 

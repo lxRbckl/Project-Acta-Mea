@@ -59,10 +59,4 @@ export interface DelProperty {
 
 }
 
-export interface Restart {
-
-   (...args: any[]): any;
-   
-}
-
 // >
