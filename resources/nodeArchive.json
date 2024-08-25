@@ -1,10 +1,4 @@
 {
-   "change": {
-      "os": "good",
-      "type": "host",
-      "services": [],
-      "status": "online"
-   },
    "highlander02": {
       "os": "",
       "type": "host",
