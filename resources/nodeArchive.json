@@ -8,7 +8,9 @@
    "thom": {
       "os": "funny",
       "type": "host",
-      "services": [],
+      "services": [
+         "mack"
+      ],
       "status": "online"
    },
    "highlander03": {
