@@ -4,7 +4,7 @@
   "description": "> Administer servers and services via a Discord bot utilizing a remote data file. V5. Spring 2024.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "tsc"
   },
   "author": "",
   "license": "ISC",
