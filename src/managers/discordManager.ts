@@ -56,7 +56,7 @@ export default class discordManager {
       // register choices <
       // register commands <
       // map registered commands <
-      this._discord.login({token : discordConfig.discordToken});
+      this._discord.login({token : discordConfig.token});
       await this._discord.registerCommandChoices();
       this._discord.registerCommands();
       this._discord.mapCommands();

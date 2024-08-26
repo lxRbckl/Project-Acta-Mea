@@ -36,8 +36,8 @@ export default class dataManager {
 
       this._octokit = new octokit({
 
-         owner : dataConfig.octokitOwner,
-         token : dataConfig.octokitToken
+         owner : dataConfig.owner,
+         token : dataConfig.token
 
       });
 
@@ -48,9 +48,9 @@ export default class dataManager {
 
       this._archive = await this._octokit.repositoryGet({
 
-         file : dataConfig.octokitFile,
-         branch : dataConfig.octokitBranch,
-         repository : dataConfig.octokitRepository
+         file : dataConfig.file,
+         branch : dataConfig.branch,
+         repository : dataConfig.repository
 
       });
 
@@ -67,9 +67,9 @@ export default class dataManager {
       await this._octokit.respositorySet({
 
          data : this._archive,
-         file : dataConfig.octokitFile,
-         branch : dataConfig.octokitBranch,
-         repository : dataConfig.octokitRepository
+         file : dataConfig.file,
+         branch : dataConfig.branch,
+         repository : dataConfig.repository
 
       });
 

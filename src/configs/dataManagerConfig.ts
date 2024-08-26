@@ -3,22 +3,22 @@ const dataManagerConfig: {
    port: string,
    host: string,
    
-   octokitFile: string,
-   octokitOwner: string,
-   octokitToken: string,
-   octokitBranch: string,
-   octokitRepository: string
+   file: string,
+   token: string,
+   owner: string,
+   branch: string,
+   repository: string
 
 } = {
 
    port : process.env.port!,
    host : process.env.host!,
 
-   octokitFile : process.env.file!,
-   octokitOwner : process.env.owner!,
-   octokitBranch : process.env.branch!,
-   octokitToken : process.env.tokenOctokit!,
-   octokitRepository : process.env.repository!
+   file : process.env.file!,
+   owner : process.env.owner!,
+   branch : process.env.branch!,
+   token : process.env.tokenOctokit!,
+   repository : process.env.repository!
 
 }
 
