@@ -6,7 +6,7 @@
       "status": "online"
    },
    "demo": {
-      "os": "",
+      "os": "Ubuntu",
       "type": "host",
       "services": [],
       "status": "online"
