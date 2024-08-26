@@ -1,6 +1,6 @@
 // import <
 import getNode from './getNode';
-import { SetProperty } from '../typings/discordManager';
+import { PropertyFunction } from '../typings/discordManager';
 
 // >
 
@@ -8,7 +8,7 @@ import { SetProperty } from '../typings/discordManager';
 export default class setProperty extends getNode {
 
 
-   public properties: string[];
+   public properties: {[key: string]: string[]};
 
 
    constructor() {
@@ -18,13 +18,25 @@ export default class setProperty extends getNode {
       this.name = 'set-property';
       this.description = 'change property of existing node';
 
-      this.properties = [
+      this.properties = {
 
-         'os',
-         'status',
-         'services'
+         'os' : [
 
-      ];
+            'MacOS',
+            'Linux',
+            'Ubuntu',
+            'Linux, Ubuntu',
+            'Raspberry Pi, Linux'
+
+         ],
+         'status' : [
+
+            'online',
+            'offline'
+
+         ]
+
+      };
 
    }
 
@@ -50,27 +62,27 @@ export default class setProperty extends getNode {
             {
 
                type : 3,
-               required : true,
-               name : 'property',
-               description : 'property of node',
-               choices : this.properties.map(p => (
-
-                  {
-
-                     name : p,
-                     value : p
-
-                  }
-
-               ))
+               name : 'service',
+               required : false,
+               description : 'an application running on a node'
 
             },
             {
 
                type : 3,
-               name : 'value',
-               required : true,
-               description : 'value of property'
+               name : 'os',
+               required : false,
+               description : 'operating system type',
+               choices : this.properties['os'].map(i => ({name : i, value : i}))
+
+            },
+            {
+
+               type : 3,
+               name : 'status',
+               required : false,
+               description : 'is node running?',
+               choices : this.properties['status'].map(i => ({name : i, value : i}))
 
             }
 
@@ -83,24 +95,24 @@ export default class setProperty extends getNode {
 
    async run({
 
+      os,
       name,
-      value,
+      status,
       service,
-      property,
       dataHandler
 
-   }: SetProperty): Promise<any> {
+   }: PropertyFunction): Promise<any> {
 
-      dataHandler.setProperty({
+      await dataHandler.setProperty({
 
+         os : os,
          name : name,
-         value : value,
-         property : property || (service as string)
+         status : status,
+         service : service
 
       });
-      await dataHandler.setArchive();
 
-      return `\`\`\`${value} was applied to ${name}->${property}\`\`\``;
+      return `\`\`\`Property ${os || status || service} was added to node ${name}.\`\`\``;
 
    }
 

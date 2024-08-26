@@ -1,7 +1,7 @@
 // import <
 import setNode from './setNode';
 import dataManager from '../managers/dataManager';
-import { GetNode, NodeChoices } from '../typings/discordManager';
+import { NodeFunction, NodeChoices } from '../typings/discordManager';
 
 // >
 
@@ -21,6 +21,7 @@ export default class getNode extends setNode {
       this.dataHandler = new dataManager();
 
       this.name = 'get-node';
+      this.requiredOption = false;
       this.description = 'fetch an existing node';
 
    }
@@ -76,17 +77,13 @@ export default class getNode extends setNode {
       name,
       dataHandler
 
-   }: GetNode): Promise<any> {
+   }: NodeFunction): Promise<any> {
 
-      const node: string = JSON.stringify(
+      const result: String = dataHandler.getNode({name : name});
+      var output: string = name ? `\`\`\`${name}\`\`\`` : '';
+      output += `\`\`\`json\n${result}\`\`\``;
 
-         dataHandler.getNode({name : name}),
-         null,
-         3
-
-      );
-
-      return `\`\`\`json\n${node}\`\`\``;
+      return output;
       
    }
 

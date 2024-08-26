@@ -1,16 +1,16 @@
 const discordManagerConfig: {
 
-   token: string,
    guildId: string,
    channelId: string,
+   discordToken: string,
    applicationId: string
 
 } = {
 
-   guildId : '768020237139705857',
-   channelId : '1210158694919176222',
-   applicationId : '1210136647992344596',
-   token : ''
+   guildId : process.env.guildId!,
+   channelId : process.env.channelId!,
+   discordToken : process.env.tokenDiscord!,
+   applicationId : process.env.applicationId!
 
 }
 

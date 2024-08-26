@@ -1,6 +1,6 @@
 // import <
-import { DelProperty } from '../typings/discordManager';
 import setProperty from '../discordCommands/setProperty';
+import { PropertyFunction } from '../typings/discordManager';
 
 // >
 
@@ -18,78 +18,26 @@ export default class delProperty extends setProperty {
    }
 
 
-   context(): any {
-
-      return {
-
-         type : 1,
-         name : this.name,
-         description : this.description,
-         options : [
-
-            {
-
-               type : 3,
-               name : 'name',
-               required : true,
-               choices : this.nodeChoices,
-               description : 'name of node'
-
-            },
-            {
-
-               type : 3,
-               required : true,
-               name : 'property',
-               description : 'property of node',
-               choices : this.properties.map(p => (
-
-                  {
-
-                     name : p,
-                     value : p
-
-                  }
-
-               ))
-
-            },
-            {
-
-               type : 3,
-               name : 'value',
-               required : true,
-               description : 'value of property'
-
-            }
-
-         ]
-         
-      };
-
-   }
-
-
    async run({
 
+      os,
       name,
-      value,
+      status,
       service,
-      property,
       dataHandler
 
-   }: DelProperty): Promise<any> {
+   }: PropertyFunction): Promise<any> {
 
-      dataHandler.delProperty({
+      await dataHandler.delProperty({
 
+         os : os,
          name : name,
-         property : property,
-         value : value || (service as string)
+         status : status,
+         service : service
 
       });
-      await dataHandler.setArchive();
 
-      return `\`\`\`${value} was removed from ${name}\`\`\``;
+      return `\`\`\`Property ${os || status || service} was deleted from node ${name}.\`\`\``;
       
    }
 

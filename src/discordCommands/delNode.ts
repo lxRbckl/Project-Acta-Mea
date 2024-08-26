@@ -1,6 +1,6 @@
 // import <
 import getNode from './getNode';
-import { DelNode } from '../typings/discordManager';
+import { NodeFunction } from '../typings/discordManager';
 
 // >
 
@@ -13,34 +13,9 @@ export default class delNode extends getNode {
       super();
       
       this.name = 'del-node';
+      this.requiredOption = true;
       this.description = 'delete an existing node';
       
-   }
-
-
-   context(): any {
-
-      return {
-
-         type : 1,
-         name : this.name,
-         description : this.description,
-         options : [
-
-            {
-
-               type : 3,
-               name : 'name',
-               required : true,
-               choices : this.nodeChoices,
-               description : 'name of node'
-
-            }
-
-         ]
-         
-      };
-
    }
 
 
@@ -49,12 +24,10 @@ export default class delNode extends getNode {
       name,
       dataHandler
 
-   }: DelNode): Promise<any> {
+   }: NodeFunction): Promise<any> {
 
-      dataHandler.delNode({name : name});
-      await dataHandler.setArchive();
-
-      return `\`\`\`json\n${name} was deleted.\`\`\``;
+      await dataHandler.delNode({name : name});
+      return `\`\`\`Node ${name} was deleted.\`\`\``;
       
    }
 

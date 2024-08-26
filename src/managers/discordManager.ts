@@ -72,19 +72,14 @@ export default class discordManager {
             content : await this._discord.mappedCommands[interaction.commandName].run({
 
                dataHandler : this._dataHandler,
+               os : interaction.options.get('os')?.value,
                name : interaction.options.get('name')?.value,
-               value : interaction.options.get('value')?.value,
-               service : interaction.options.get('service')?.value,
-               property : interaction.options.get('property')?.value
+               status : interaction.options.get('status')?.value,
+               service : interaction.options.get('service')?.value
 
             })
 
          });
-
-         // update data <
-         await this._dataHandler.getArchive();
-
-         // >
          
       });
 

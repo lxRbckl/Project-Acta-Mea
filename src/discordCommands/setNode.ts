@@ -1,6 +1,5 @@
 // import <
-import restart from '../discordCommands/restart';
-import { SetNode } from '../typings/discordManager';
+import { NodeFunction } from '../typings/discordManager';
 
 // >
 
@@ -10,11 +9,13 @@ export default class setNode {
 
    public name: string;
    public description: string;
+   public requiredOption: boolean;
 
 
    constructor() {
 
       this.name = 'set-node';
+      this.requiredOption = true;
       this.description = 'create a new node';
       
    }
@@ -33,8 +34,8 @@ export default class setNode {
 
                type : 3,
                name : 'name',
-               required : true,
-               description : 'name of node'
+               description : 'name of node',
+               required : this.requiredOption
 
             }
 
@@ -50,18 +51,17 @@ export default class setNode {
       name,
       dataHandler
 
-   }: SetNode): Promise<string> {
+   }: NodeFunction): Promise<string> {
 
-      switch (dataHandler.setNode({name : name})) {
+      switch (await dataHandler.setNode({name : name})) {
 
          case (true): 
          
-            await dataHandler.setArchive();
-            return `\`\`\`${name} was created.\`\`\``;
+            return `\`\`\`Node ${name} was created.\`\`\``;
             
          case (false): 
          
-            return `\`\`\`${name} already exists.\`\`\``;
+            return `\`\`\`Node ${name} already exists.\`\`\``;
 
       }
 

@@ -4,11 +4,8 @@ import { octokit } from 'lxrbckl';
 
 import { 
    
-   Node,
    Swarm,
    Archive,
-   NodeArray,
-   NodeString,
    NodeFunction,
    PropertyFunction
 
@@ -24,13 +21,11 @@ export default class dataManager {
    private _dockerode: any;
    private _archive: Archive;
    private _octokit: octokit;
-   private _arrayProperties: string[];
 
 
    constructor() {
 
       this._archive = {};
-      this._arrayProperties = ['services'];
 
       this._dockerode = new Dockerode({
 
@@ -153,13 +148,13 @@ export default class dataManager {
    }
 
 
-   public setNode({name}: NodeFunction): boolean {
+   public async setNode({name}: NodeFunction): Promise<boolean> {
 
-      switch (!(Object.keys(this._archive)).includes(name)) {
+      switch (!(Object.keys(this._archive)).includes(name!)) {
 
          case (true):
 
-            this._archive[name] = {
+            this._archive[name!] = {
 
                'os' : '',
                'type' : 'host',
@@ -168,6 +163,7 @@ export default class dataManager {
 
             };
 
+            await this.setArchive();
             return true;
 
          case (false): return false;
@@ -177,48 +173,61 @@ export default class dataManager {
    }
 
 
-   public getNode({name}: NodeFunction): Node {return this._archive[name];}
+   public getNode({name}: NodeFunction): string {
+      
+      return JSON.stringify(
+
+         name ? this._archive[name!] : Object.keys(this._archive),
+         null,
+         3
+
+      );
+   
+   }
 
 
-   public delNode({name}: NodeFunction): void {delete this._archive[name];}
+   public async delNode({name}: NodeFunction): Promise<void> {
+      
+      delete this._archive[name!];
+      await this.setArchive();
+      
+   }
 
 
-   public setProperty({
+   public async setProperty({
 
+      os,
       name,
-      value,
-      property
+      status,
+      service
 
-   }: PropertyFunction): void {
+   }: PropertyFunction): Promise<void> {
 
-      switch (this._arrayProperties.includes(property)) {
+      // set property <
+      if (os) {this._archive[name]['os'] = os;}
+      else if (status) {this._archive[name]['status'] = status;}
+      else if (service) {this._archive[name]['services'].push(service);}
 
-         case (false):
+      // >
 
-            this._archive[name][(property as NodeString)] = value;
-            break;
-
-         case (true):
-
-            this._archive[name][(property as NodeArray)].push(value);
-            break;
-
-      }
+      await this.setArchive();
 
    }
 
 
-   public delProperty({
+   public async delProperty({
 
+      os,
       name,
-      value,
-      property
+      status,
+      service
 
-   }: PropertyFunction): void {
+   }: PropertyFunction): Promise<void> {
 
-      // we assume property is 'service' //
       const services: string[] = this._archive[name]['services'];
-      this._archive[name]['services'] = services.filter(i => i != value);
+      this._archive[name]['services'] = services.filter(i => i != service);
+
+      await this.setArchive();
 
    }
 

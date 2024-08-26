@@ -1,12 +1,11 @@
 // typings <
-export type NodeArray = 'services';
-export type NodeString = 'os' | 'type' | 'status';
+
 
 // >
 
 
 // interfaces <
-export interface Node {
+interface Node {
 
    'os': string;
    'type': string;
@@ -31,16 +30,17 @@ export interface Archive {
 
 export interface NodeFunction {
 
-   name: string;
+   name?: string;
 
 }
 
 
 export interface PropertyFunction {
 
+   os?: string;
    name: string;
-   value: string;
-   property: string;
+   status?: string;
+   service?: string;
 
 }
 

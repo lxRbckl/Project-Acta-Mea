@@ -11,14 +11,14 @@ const dataManagerConfig: {
 
 } = {
 
-   port : '2375',
-   host : '192.168.86.214',
+   port : process.env.port!,
+   host : process.env.host!,
 
-   octokitBranch : 'V6',
-   octokitOwner : 'lxRbckl',
-   octokitRepository : 'Project-Acta-Mea',
-   octokitFile : 'resources/nodeArchive.json',
-   octokitToken : ''
+   octokitFile : process.env.file!,
+   octokitOwner : process.env.owner!,
+   octokitBranch : process.env.branch!,
+   octokitToken : process.env.tokenOctokit!,
+   octokitRepository : process.env.repository!
 
 }
 

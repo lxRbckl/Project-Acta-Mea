@@ -20,43 +20,20 @@ interface NodeChoice {
 }
 
 
-export interface SetNode {
+export interface NodeFunction {
 
    name: string;
    dataHandler: dataManager;
 
 }
 
-export interface GetNode {
 
+export interface PropertyFunction {
+
+   os: string;
    name: string;
-   dataHandler: dataManager;
-
-}
-
-export interface DelNode {
-
-   name: string;
-   dataHandler: dataManager;
-
-}
-
-export interface SetProperty {
-
-   name: string;
-   value: string;
-   service?: string;
-   property: string;
-   dataHandler: dataManager;
-
-}
-
-export interface DelProperty {
-
-   name: string;
-   value: string;
-   service?: string;
-   property: string;
+   status: string;
+   service: string;
    dataHandler: dataManager;
 
 }
