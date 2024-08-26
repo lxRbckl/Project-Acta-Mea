@@ -8,7 +8,9 @@
    "demo": {
       "os": "",
       "type": "host",
-      "services": [],
+      "services": [
+         "project doom"
+      ],
       "status": "online"
    },
    "highlander03": {
