@@ -8,7 +8,9 @@
    "demo": {
       "os": "Raspberry Pi, Linux",
       "type": "host",
-      "services": [],
+      "services": [
+         "project west"
+      ],
       "status": "offline"
    },
    "highlander03": {
