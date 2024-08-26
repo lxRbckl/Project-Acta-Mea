@@ -9,7 +9,7 @@
       "os": "",
       "type": "host",
       "services": [],
-      "status": "online"
+      "status": "offline"
    },
    "highlander03": {
       "os": "linux",
