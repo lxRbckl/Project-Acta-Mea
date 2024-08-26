@@ -5,12 +5,6 @@
       "services": [],
       "status": "online"
    },
-   "thom": {
-      "os": "funny",
-      "type": "host",
-      "services": [],
-      "status": "online"
-   },
    "demo": {
       "os": "",
       "type": "host",
