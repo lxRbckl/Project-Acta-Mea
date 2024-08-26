@@ -5,12 +5,6 @@
       "services": [],
       "status": "online"
    },
-   "demo": {
-      "os": "Ubuntu",
-      "type": "host",
-      "services": [],
-      "status": "offline"
-   },
    "highlander03": {
       "os": "linux",
       "type": "swarm",
