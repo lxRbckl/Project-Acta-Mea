@@ -6,7 +6,7 @@
       "status": "online"
    },
    "demo": {
-      "os": "",
+      "os": "Raspberry Pi, Linux",
       "type": "host",
       "services": [],
       "status": "offline"
@@ -15,9 +15,7 @@
       "os": "linux",
       "type": "swarm",
       "status": "ready",
-      "services": [
-         "project ja"
-      ]
+      "services": []
    },
    "highlander09": {
       "os": "linux",
@@ -29,27 +27,21 @@
       "os": "linux",
       "type": "swarm",
       "status": "ready",
-      "services": [
-         "project ja",
-         "project ja",
-         "project ja"
-      ]
+      "services": []
    },
    "highlander06": {
       "os": "linux",
       "type": "swarm",
       "status": "ready",
       "services": [
-         "project heimir"
+         "project acta-mea"
       ]
    },
    "highlander10": {
       "os": "linux",
       "type": "swarm",
       "status": "ready",
-      "services": [
-         "project madgarden"
-      ]
+      "services": []
    },
    "highlander08": {
       "os": "linux",
@@ -67,17 +59,13 @@
       "os": "linux",
       "type": "swarm",
       "status": "ready",
-      "services": [
-         "project aclg"
-      ]
+      "services": []
    },
    "highlander01": {
       "os": "linux",
       "type": "swarm",
       "status": "ready",
-      "services": [
-         "project ja"
-      ]
+      "services": []
    },
    "highlander11": {
       "os": "linux",
