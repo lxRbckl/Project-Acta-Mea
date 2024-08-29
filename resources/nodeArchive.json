@@ -5,26 +5,9 @@
       "services": [],
       "status": "online"
    },
-   "demo": {
-      "os": "Raspberry Pi, Linux",
-      "type": "host",
-      "services": [
-         "project west",
-         "project here",
-         "project demo",
-         "project example",
-         "project test",
-         "another ex",
-         "last one",
-         "here we go",
-         "another example",
-         "example"
-      ],
-      "status": "offline"
-   },
    "highlander03": {
       "os": "linux",
-      "type": "swarm",
+      "host": "swarm",
       "status": "ready",
       "services": [
          "project madgarden"
@@ -32,7 +15,7 @@
    },
    "highlander09": {
       "os": "linux",
-      "type": "swarm",
+      "host": "swarm",
       "status": "ready",
       "services": [
          "project acta-mea"
@@ -40,7 +23,7 @@
    },
    "highlander07": {
       "os": "linux",
-      "type": "swarm",
+      "host": "swarm",
       "status": "ready",
       "services": [
          "project aclg"
@@ -48,13 +31,13 @@
    },
    "highlander06": {
       "os": "linux",
-      "type": "swarm",
+      "host": "swarm",
       "status": "ready",
       "services": []
    },
    "highlander10": {
       "os": "linux",
-      "type": "swarm",
+      "host": "swarm",
       "status": "ready",
       "services": [
          "project heimir"
@@ -62,7 +45,7 @@
    },
    "highlander08": {
       "os": "linux",
-      "type": "swarm",
+      "host": "swarm",
       "status": "ready",
       "services": [
          "project aclg"
@@ -70,7 +53,7 @@
    },
    "highlander14": {
       "os": "linux",
-      "type": "swarm",
+      "host": "swarm",
       "status": "ready",
       "services": [
          "project ja",
@@ -79,7 +62,7 @@
    },
    "highlander04": {
       "os": "linux",
-      "type": "swarm",
+      "host": "swarm",
       "status": "ready",
       "services": [
          "project heimir"
@@ -87,7 +70,7 @@
    },
    "highlander01": {
       "os": "linux",
-      "type": "swarm",
+      "host": "swarm",
       "status": "ready",
       "services": [
          "project aclg",
@@ -96,7 +79,7 @@
    },
    "highlander11": {
       "os": "linux",
-      "type": "swarm",
+      "host": "swarm",
       "status": "down",
       "services": []
    }
