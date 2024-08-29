@@ -12,7 +12,8 @@
          "project west",
          "project here",
          "project demo",
-         "project example"
+         "project example",
+         "project test"
       ],
       "status": "offline"
    },
