@@ -10,7 +10,8 @@
       "type": "host",
       "services": [
          "project west",
-         "project here"
+         "project here",
+         "project demo"
       ],
       "status": "offline"
    },
