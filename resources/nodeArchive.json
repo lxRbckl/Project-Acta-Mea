@@ -1,10 +1,4 @@
 {
-   "highlander02": {
-      "os": "",
-      "type": "host",
-      "services": [],
-      "status": "online"
-   },
    "highlander03": {
       "os": "linux",
       "host": "swarm",
