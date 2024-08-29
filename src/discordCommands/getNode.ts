@@ -59,9 +59,9 @@ export default class getNode extends setNode {
 
                type : 3,
                name : 'name',
-               required : true,
                choices : this.nodeChoices,
-               description : 'name of node'
+               description : 'name of node',
+               required : this.requiredOption
 
             }
 
