@@ -8,7 +8,7 @@
 interface Node {
 
    'os': string;
-   'type': string;
+   'host': string;
    'name'?: string;
    'status': string;
    'services': string[];

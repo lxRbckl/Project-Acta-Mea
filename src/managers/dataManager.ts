@@ -82,10 +82,10 @@ export default class dataManager {
 
          this._archive[n.name!] = {
 
-            'os' : n.os,
-            'type' : n.type,
-            'status' : n.status,
-            'services' : n.services
+            'os' : n['os'],
+            'host' : n['host'],
+            'status' : n['status'],
+            'services' : n['services']
 
          };
 
@@ -106,7 +106,7 @@ export default class dataManager {
             swarm[n.ID] = {
 
                'services' : [],
-               'type' : 'swarm',
+               'host' : 'swarm',
                'status' : n.Status.State,
                'name' : n.Description.Hostname,
                'os' : n.Description.Platform.OS
@@ -141,7 +141,7 @@ export default class dataManager {
 
       for (const [k, n] of Object.entries(this._archive)) {
 
-         if (n.type == 'swarm') {delete this._archive[k]}
+         if (n['host'] == 'swarm') {delete this._archive[k]}
 
       }
 
@@ -157,9 +157,9 @@ export default class dataManager {
             this._archive[name!] = {
 
                'os' : '',
-               'type' : 'host',
                'services' : [],
-               'status' : 'online'
+               'status' : 'online',
+               'host' : 'standalone'
 
             };
 

@@ -31,8 +31,8 @@ export default class setProperty extends getNode {
          ],
          'status' : [
 
-            'online',
-            'offline'
+            'down',
+            'ready',
 
          ]
 
@@ -64,7 +64,7 @@ export default class setProperty extends getNode {
                type : 3,
                name : 'service',
                required : false,
-               description : 'an application running on a node'
+               description : 'add application/container running on node'
 
             },
             {
@@ -72,7 +72,7 @@ export default class setProperty extends getNode {
                type : 3,
                name : 'os',
                required : false,
-               description : 'operating system type',
+               description : 'change operating system type',
                choices : this.properties['os'].map(i => ({name : i, value : i}))
 
             },
@@ -81,7 +81,7 @@ export default class setProperty extends getNode {
                type : 3,
                name : 'status',
                required : false,
-               description : 'is node running?',
+               description : 'change running status',
                choices : this.properties['status'].map(i => ({name : i, value : i}))
 
             }
