@@ -11,7 +11,8 @@
       "services": [
          "project west",
          "project here",
-         "project demo"
+         "project demo",
+         "project example"
       ],
       "status": "offline"
    },
