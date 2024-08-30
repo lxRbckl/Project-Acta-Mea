@@ -158,7 +158,7 @@ export default class dataManager {
 
                'os' : '',
                'services' : [],
-               'status' : 'online',
+               'status' : 'ready',
                'host' : 'standalone'
 
             };
