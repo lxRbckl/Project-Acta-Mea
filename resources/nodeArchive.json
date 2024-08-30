@@ -1,10 +1,4 @@
 {
-   "example": {
-      "os": "",
-      "services": [],
-      "status": "online",
-      "host": "standalone"
-   },
    "highlander03": {
       "os": "linux",
       "host": "swarm",
@@ -17,9 +11,7 @@
       "os": "linux",
       "host": "swarm",
       "status": "ready",
-      "services": [
-         "project acta-mea"
-      ]
+      "services": []
    },
    "highlander07": {
       "os": "linux",
@@ -48,7 +40,8 @@
       "host": "swarm",
       "status": "ready",
       "services": [
-         "project aclg"
+         "project aclg",
+         "project acta-mea"
       ]
    },
    "highlander14": {
