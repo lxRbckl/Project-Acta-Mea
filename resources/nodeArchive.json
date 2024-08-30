@@ -1,4 +1,10 @@
 {
+   "example": {
+      "os": "",
+      "services": [],
+      "status": "online",
+      "host": "standalone"
+   },
    "highlander03": {
       "os": "linux",
       "host": "swarm",
