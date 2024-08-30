@@ -24,6 +24,7 @@ export default class delProperty extends setProperty {
       name,
       status,
       service,
+      hardware,
       dataHandler
 
    }: PropertyFunction): Promise<any> {
@@ -33,7 +34,8 @@ export default class delProperty extends setProperty {
          os : os,
          name : name,
          status : status,
-         service : service
+         service : service,
+         hardware : hardware
 
       });
 

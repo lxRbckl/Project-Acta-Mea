@@ -20,6 +20,13 @@ export default class setProperty extends getNode {
 
       this.properties = {
 
+         'hardware' : [
+
+            'raspberry pi',
+            'apple',
+            'other'
+
+         ],
          'os' : [
 
             'MacOS',
@@ -84,6 +91,14 @@ export default class setProperty extends getNode {
                description : 'change running status',
                choices : this.properties['status'].map(i => ({name : i, value : i}))
 
+            },
+            {
+
+               type : 3,
+               name : 'hardware',
+               description : 'computer component made by',
+               choices : this.properties['hardware'].map(i => ({name : i, value : i}))
+
             }
 
          ]
@@ -99,6 +114,7 @@ export default class setProperty extends getNode {
       name,
       status,
       service,
+      hardware,
       dataHandler
 
    }: PropertyFunction): Promise<any> {
@@ -108,7 +124,8 @@ export default class setProperty extends getNode {
          os : os,
          name : name,
          status : status,
-         service : service
+         service : service,
+         hardware : hardware
 
       });
 

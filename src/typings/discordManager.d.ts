@@ -34,6 +34,7 @@ export interface PropertyFunction {
    name: string;
    status: string;
    service: string;
+   hardware: string;
    dataHandler: dataManager;
 
 }

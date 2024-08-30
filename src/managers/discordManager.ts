@@ -75,7 +75,8 @@ export default class discordManager {
                os : interaction.options.get('os')?.value,
                name : interaction.options.get('name')?.value,
                status : interaction.options.get('status')?.value,
-               service : interaction.options.get('service')?.value
+               service : interaction.options.get('service')?.value,
+               hardware : interaction.options.get('hardware')?.value
 
             })
 

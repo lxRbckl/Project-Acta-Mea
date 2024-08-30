@@ -5,12 +5,20 @@
 
 
 // interfaces <
+export interface ServiceAliases {
+
+   [key: string]: string;
+
+}
+
+
 interface Node {
 
    'os': string;
    'host': string;
    'name'?: string;
    'status': string;
+   'hardware': string;
    'services': string[];
 
 }
@@ -41,6 +49,7 @@ export interface PropertyFunction {
    name: string;
    status?: string;
    service?: string;
+   hardware?: string;
 
 }
 

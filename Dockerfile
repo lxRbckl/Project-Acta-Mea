@@ -11,11 +11,11 @@ ENV applicationId ${applicationId}
 
 ENV port ${port}
 ENV host ${host}
-
 ENV file ${file}
 ENV owner ${owner}
 ENV branch ${branch}
 ENV repository ${repository}
+ENV serviceAliasesURL ${serviceAliasesURL}
 
 # >
 

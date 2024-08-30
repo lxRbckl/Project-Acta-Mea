@@ -1,12 +1,13 @@
 // import <
 import Dockerode from 'dockerode';
-import { octokit } from 'lxrbckl';
+import { octokit, axiosGet } from 'lxrbckl';
 
 import { 
    
    Swarm,
    Archive,
    NodeFunction,
+   ServiceAliases,
    PropertyFunction
 
 } from '../typings/dataManager';
@@ -21,11 +22,20 @@ export default class dataManager {
    private _dockerode: any;
    private _archive: Archive;
    private _octokit: octokit;
+   private _dockerSwarmHardware: string;
 
 
    constructor() {
 
       this._archive = {};
+      this._dockerSwarmHardware = 'raspberry pi';
+
+      this._octokit = new octokit({
+
+         owner : dataConfig.owner,
+         token : dataConfig.token
+
+      });
 
       this._dockerode = new Dockerode({
 
@@ -34,12 +44,25 @@ export default class dataManager {
 
       });
 
-      this._octokit = new octokit({
+   }
 
-         owner : dataConfig.owner,
-         token : dataConfig.token
 
-      });
+   private _convertService(
+      
+      service: string,
+      aliases: ServiceAliases
+
+   ): string {
+
+      let convert: string = service;
+      convert = convert.split('/')[1].split(':')[0];
+
+      switch (Object.keys(aliases).includes(service)) {
+
+         case (false): return service;
+         case (true): return aliases[service];
+
+      }
 
    }
 
@@ -82,10 +105,11 @@ export default class dataManager {
 
          this._archive[n.name!] = {
 
-            'os' : n['os'],
-            'host' : n['host'],
+            'services' : n['services'],
+            'hardware' : n['hardware'],
             'status' : n['status'],
-            'services' : n['services']
+            'host' : n['host'],
+            'os' : n['os']
 
          };
 
@@ -97,10 +121,13 @@ export default class dataManager {
    private async _getDockerSwarm(): Promise<Swarm> {
 
       var swarm: Swarm = {};
+      var serviceAliases: ServiceAliases;
+      serviceAliases = await axiosGet(dataConfig.serviceAliasesURL);
 
       try {
 
          // iterate (docker swarm) <
+         // fetch remote server aliases <
          for (const n of await this._dockerode.listNodes()) {
 
             swarm[n.ID] = {
@@ -109,7 +136,8 @@ export default class dataManager {
                'host' : 'swarm',
                'status' : n.Status.State,
                'name' : n.Description.Hostname,
-               'os' : n.Description.Platform.OS
+               'os' : n.Description.Platform.OS,
+               'hardware' : this._dockerSwarmHardware
 
             };
 
@@ -120,11 +148,27 @@ export default class dataManager {
          // iterate (tasks running) <
          for (const t of await this._dockerode.listTasks()) {
 
-            let service: string = '';
-            service = t.Spec.ContainerSpec.Image;
-            service = service.split('/')[1].split(':')[0];
 
-            swarm[t.NodeID]['services'].push(service.replace('-', ' '));
+
+            // V1
+            // let service: string = '';
+            // service = t.Spec.ContainerSpec.Image;
+            // service = service.split('/')[1].split(':')[0];
+
+            // swarm[t.NodeID]['services'].push(service.replace('-', ' '));
+
+            // - - - - - - -
+
+            // V2
+            let service: string = t.Spec.ContainerSpec.Image;
+            swarm[t.NodeID]['services'].push(this._convertService(
+               
+               service,
+               serviceAliases
+            
+            ));
+
+            // >
 
          }
 
@@ -157,6 +201,7 @@ export default class dataManager {
             this._archive[name!] = {
 
                'os' : '',
+               'hardware' : '',
                'services' : [],
                'status' : 'ready',
                'host' : 'standalone'
