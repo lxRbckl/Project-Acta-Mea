@@ -1,85 +1,72 @@
 {
-   "example": {
-      "os": "",
-      "services": [],
-      "status": "ready",
-      "host": "standalone"
-   },
    "highlander03": {
-      "os": "linux",
-      "host": "swarm",
+      "services": [],
+      "hardware": "raspberry pi",
       "status": "ready",
-      "services": [
-         "project madgarden"
-      ]
+      "host": "swarm",
+      "os": "linux"
    },
    "highlander09": {
-      "os": "linux",
-      "host": "swarm",
+      "services": [],
+      "hardware": "raspberry pi",
       "status": "ready",
-      "services": []
+      "host": "swarm",
+      "os": "linux"
    },
    "highlander07": {
-      "os": "linux",
-      "host": "swarm",
+      "services": [],
+      "hardware": "raspberry pi",
       "status": "ready",
-      "services": [
-         "project aclg"
-      ]
+      "host": "swarm",
+      "os": "linux"
    },
    "highlander06": {
-      "os": "linux",
-      "host": "swarm",
+      "services": [],
+      "hardware": "raspberry pi",
       "status": "ready",
-      "services": []
+      "host": "swarm",
+      "os": "linux"
    },
    "highlander10": {
-      "os": "linux",
-      "host": "swarm",
+      "services": [],
+      "hardware": "raspberry pi",
       "status": "ready",
-      "services": [
-         "project heimir"
-      ]
+      "host": "swarm",
+      "os": "linux"
    },
    "highlander08": {
-      "os": "linux",
-      "host": "swarm",
+      "services": [],
+      "hardware": "raspberry pi",
       "status": "ready",
-      "services": [
-         "project aclg",
-         "project acta-mea"
-      ]
+      "host": "swarm",
+      "os": "linux"
    },
    "highlander14": {
-      "os": "linux",
-      "host": "swarm",
+      "services": [],
+      "hardware": "raspberry pi",
       "status": "ready",
-      "services": [
-         "project ja",
-         "project ja"
-      ]
+      "host": "swarm",
+      "os": "linux"
    },
    "highlander04": {
-      "os": "linux",
-      "host": "swarm",
+      "services": [],
+      "hardware": "raspberry pi",
       "status": "ready",
-      "services": [
-         "project heimir"
-      ]
+      "host": "swarm",
+      "os": "linux"
    },
    "highlander01": {
-      "os": "linux",
-      "host": "swarm",
+      "services": [],
+      "hardware": "raspberry pi",
       "status": "ready",
-      "services": [
-         "project aclg",
-         "project aclg"
-      ]
+      "host": "swarm",
+      "os": "linux"
    },
    "highlander11": {
-      "os": "linux",
-      "host": "swarm",
+      "services": [],
+      "hardware": "raspberry pi",
       "status": "down",
-      "services": []
+      "host": "swarm",
+      "os": "linux"
    }
 }
