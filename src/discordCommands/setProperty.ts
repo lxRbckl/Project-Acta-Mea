@@ -95,6 +95,7 @@ export default class setProperty extends getNode {
             {
 
                type : 3,
+               required : false,
                name : 'hardware',
                description : 'computer component made by',
                choices : this.properties['hardware'].map(i => ({name : i, value : i}))
@@ -129,7 +130,7 @@ export default class setProperty extends getNode {
 
       });
 
-      return `\`\`\`Property ${os || status || service} was added to node ${name}.\`\`\``;
+      return `\`\`\`Property ${os || status || service || hardware} was added to node ${name}.\`\`\``;
 
    }
 

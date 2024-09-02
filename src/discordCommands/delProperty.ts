@@ -39,7 +39,7 @@ export default class delProperty extends setProperty {
 
       });
 
-      return `\`\`\`Property ${os || status || service} was deleted from node ${name}.\`\`\``;
+      return `\`\`\`Property ${os || status || service || hardware} was deleted from node ${name}.\`\`\``;
       
    }
 

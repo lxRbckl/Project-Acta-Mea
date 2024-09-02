@@ -45,11 +45,11 @@ export interface NodeFunction {
 
 export interface PropertyFunction {
 
-   os?: string;
+   os: string;
    name: string;
-   status?: string;
-   service?: string;
-   hardware?: string;
+   status: string;
+   service: string;
+   hardware: string;
 
 }
 

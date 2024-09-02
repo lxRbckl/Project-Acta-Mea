@@ -244,13 +244,15 @@ export default class dataManager {
       os,
       name,
       status,
-      service
+      service,
+      hardware
 
    }: PropertyFunction): Promise<void> {
 
       // set property <
       if (os) {this._archive[name]['os'] = os;}
       else if (status) {this._archive[name]['status'] = status;}
+      else if (hardware) {this._archive[name]['hardware'] = hardware;}
       else if (service) {this._archive[name]['services'].push(service);}
 
       // >
@@ -265,10 +267,12 @@ export default class dataManager {
       os,
       name,
       status,
-      service
+      service,
+      hardware
 
    }: PropertyFunction): Promise<void> {
 
+      //! currently only service property !//
       const services: string[] = this._archive[name]['services'];
       this._archive[name]['services'] = services.filter(i => i != service);
 
