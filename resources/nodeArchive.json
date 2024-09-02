@@ -1,11 +1,4 @@
 {
-   "demo": {
-      "os": "",
-      "hardware": "",
-      "services": [],
-      "status": "ready",
-      "host": "standalone"
-   },
    "highlander03": {
       "services": [
          null
@@ -17,6 +10,7 @@
    },
    "highlander09": {
       "services": [
+         null,
          null
       ],
       "hardware": "raspberry pi",
