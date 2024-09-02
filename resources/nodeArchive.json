@@ -1,11 +1,4 @@
 {
-   "demo": {
-      "os": "",
-      "hardware": "raspberry pi",
-      "services": [],
-      "status": "ready",
-      "host": "standalone"
-   },
    "trial": {
       "os": "",
       "hardware": "",
@@ -21,14 +14,18 @@
       "os": "linux"
    },
    "highlander09": {
-      "services": [],
+      "services": [
+         "lxrbckl/project-acta-mea:latest@sha256:05d88cc262c9314cb300b9317ccfe658cda7807eb5b9205c16f2f8279f2c6038"
+      ],
       "hardware": "raspberry pi",
       "status": "ready",
       "host": "swarm",
       "os": "linux"
    },
    "highlander07": {
-      "services": [],
+      "services": [
+         "lxrbckl/project-aclg:latest@sha256:f7219734d28604839fc487b0ace0a004f427df18c28f1113747453afce5fffa2"
+      ],
       "hardware": "raspberry pi",
       "status": "ready",
       "host": "swarm",
@@ -42,35 +39,48 @@
       "os": "linux"
    },
    "highlander10": {
-      "services": [],
+      "services": [
+         "lxrbckl/project-heimir:latest@sha256:fc71702379b869233e56fb7831157083ba56e9ce788b06aebb51fb55fcf3403c"
+      ],
       "hardware": "raspberry pi",
       "status": "ready",
       "host": "swarm",
       "os": "linux"
    },
    "highlander08": {
-      "services": [],
+      "services": [
+         "lxrbckl/project-aclg:latest@sha256:f7219734d28604839fc487b0ace0a004f427df18c28f1113747453afce5fffa2"
+      ],
       "hardware": "raspberry pi",
       "status": "ready",
       "host": "swarm",
       "os": "linux"
    },
    "highlander14": {
-      "services": [],
+      "services": [
+         "lxrbckl/project-ja:latest@sha256:58f7b92543554cdf93fd5c121fda0d519ab8741d4851921f0b8fe2fc9df47bc4",
+         "lxrbckl/project-ja:latest@sha256:58f7b92543554cdf93fd5c121fda0d519ab8741d4851921f0b8fe2fc9df47bc4"
+      ],
       "hardware": "raspberry pi",
       "status": "ready",
       "host": "swarm",
       "os": "linux"
    },
    "highlander04": {
-      "services": [],
+      "services": [
+         "lxrbckl/project-madgarden:latest@sha256:2487ce546ce446dc9b6d6953dcc08f851629a7f769be91ff31222ce5b4c1bb44",
+         "lxrbckl/project-heimir:latest@sha256:fc71702379b869233e56fb7831157083ba56e9ce788b06aebb51fb55fcf3403c"
+      ],
       "hardware": "raspberry pi",
       "status": "ready",
       "host": "swarm",
       "os": "linux"
    },
    "highlander01": {
-      "services": [],
+      "services": [
+         "lxrbckl/project-aclg:latest@sha256:f7219734d28604839fc487b0ace0a004f427df18c28f1113747453afce5fffa2",
+         "lxrbckl/project-aclg:latest@sha256:f7219734d28604839fc487b0ace0a004f427df18c28f1113747453afce5fffa2"
+      ],
       "hardware": "raspberry pi",
       "status": "ready",
       "host": "swarm",
