@@ -1,11 +1,4 @@
 {
-   "trial": {
-      "os": "",
-      "hardware": "",
-      "services": [],
-      "status": "ready",
-      "host": "standalone"
-   },
    "demo": {
       "os": "",
       "hardware": "",
@@ -15,7 +8,7 @@
    },
    "highlander03": {
       "services": [
-         "lxrbckl/project-acta-mea:latest@sha256:05d88cc262c9314cb300b9317ccfe658cda7807eb5b9205c16f2f8279f2c6038"
+         null
       ],
       "hardware": "raspberry pi",
       "status": "ready",
@@ -24,7 +17,7 @@
    },
    "highlander09": {
       "services": [
-         "lxrbckl/project-acta-mea:latest@sha256:05d88cc262c9314cb300b9317ccfe658cda7807eb5b9205c16f2f8279f2c6038"
+         null
       ],
       "hardware": "raspberry pi",
       "status": "ready",
@@ -33,7 +26,7 @@
    },
    "highlander07": {
       "services": [
-         "lxrbckl/project-aclg:latest@sha256:f7219734d28604839fc487b0ace0a004f427df18c28f1113747453afce5fffa2"
+         "Project ACLG"
       ],
       "hardware": "raspberry pi",
       "status": "ready",
@@ -49,7 +42,7 @@
    },
    "highlander10": {
       "services": [
-         "lxrbckl/project-heimir:latest@sha256:fc71702379b869233e56fb7831157083ba56e9ce788b06aebb51fb55fcf3403c"
+         null
       ],
       "hardware": "raspberry pi",
       "status": "ready",
@@ -58,8 +51,9 @@
    },
    "highlander08": {
       "services": [
-         "lxrbckl/project-aclg:latest@sha256:f7219734d28604839fc487b0ace0a004f427df18c28f1113747453afce5fffa2",
-         "lxrbckl/project-acta-mea:latest@sha256:05d88cc262c9314cb300b9317ccfe658cda7807eb5b9205c16f2f8279f2c6038"
+         null,
+         "Project ACLG",
+         null
       ],
       "hardware": "raspberry pi",
       "status": "ready",
@@ -68,8 +62,8 @@
    },
    "highlander14": {
       "services": [
-         "lxrbckl/project-ja:latest@sha256:58f7b92543554cdf93fd5c121fda0d519ab8741d4851921f0b8fe2fc9df47bc4",
-         "lxrbckl/project-ja:latest@sha256:58f7b92543554cdf93fd5c121fda0d519ab8741d4851921f0b8fe2fc9df47bc4"
+         null,
+         null
       ],
       "hardware": "raspberry pi",
       "status": "ready",
@@ -78,7 +72,7 @@
    },
    "highlander04": {
       "services": [
-         "lxrbckl/project-heimir:latest@sha256:fc71702379b869233e56fb7831157083ba56e9ce788b06aebb51fb55fcf3403c"
+         null
       ],
       "hardware": "raspberry pi",
       "status": "ready",
@@ -87,8 +81,8 @@
    },
    "highlander01": {
       "services": [
-         "lxrbckl/project-aclg:latest@sha256:f7219734d28604839fc487b0ace0a004f427df18c28f1113747453afce5fffa2",
-         "lxrbckl/project-aclg:latest@sha256:f7219734d28604839fc487b0ace0a004f427df18c28f1113747453afce5fffa2"
+         "Project ACLG",
+         "Project ACLG"
       ],
       "hardware": "raspberry pi",
       "status": "ready",
