@@ -47,16 +47,14 @@ export default class dataManager {
    }
 
 
-   private _convertService(
+   private _imageToService(
       
-      service: string,
+      image: string,
       aliases: ServiceAliases
 
    ): string {
 
-      let convert: string = service;
-      convert = convert.split('/')[1].split(':')[0];
-
+      const service: string = image.split('/')[1].split(':')[0];
       switch (Object.keys(aliases).includes(service)) {
 
          case (false): return service;
@@ -161,7 +159,7 @@ export default class dataManager {
 
             // V2
             let service: string = t.Spec.ContainerSpec.Image;
-            swarm[t.NodeID]['services'].push(this._convertService(
+            swarm[t.NodeID]['services'].push(this._imageToService(
                
                service,
                serviceAliases
