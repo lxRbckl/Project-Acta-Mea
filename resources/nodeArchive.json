@@ -1,7 +1,7 @@
 {
    "demo": {
       "os": "",
-      "hardware": "",
+      "hardware": "raspberry pi",
       "services": [],
       "status": "ready",
       "host": "standalone"
