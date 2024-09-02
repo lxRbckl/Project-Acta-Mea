@@ -6,6 +6,13 @@
       "status": "ready",
       "host": "standalone"
    },
+   "demo": {
+      "os": "",
+      "hardware": "",
+      "services": [],
+      "status": "ready",
+      "host": "standalone"
+   },
    "highlander03": {
       "services": [
          "lxrbckl/project-acta-mea:latest@sha256:05d88cc262c9314cb300b9317ccfe658cda7807eb5b9205c16f2f8279f2c6038"
@@ -51,7 +58,8 @@
    },
    "highlander08": {
       "services": [
-         "lxrbckl/project-aclg:latest@sha256:f7219734d28604839fc487b0ace0a004f427df18c28f1113747453afce5fffa2"
+         "lxrbckl/project-aclg:latest@sha256:f7219734d28604839fc487b0ace0a004f427df18c28f1113747453afce5fffa2",
+         "lxrbckl/project-acta-mea:latest@sha256:05d88cc262c9314cb300b9317ccfe658cda7807eb5b9205c16f2f8279f2c6038"
       ],
       "hardware": "raspberry pi",
       "status": "ready",
