@@ -30,10 +30,8 @@ export default class setProperty extends getNode {
          'os' : [
 
             'MacOS',
-            'Linux',
             'Ubuntu',
-            'Linux, Ubuntu',
-            'Raspberry Pi, Linux'
+            'Raspbian'
 
          ],
          'status' : [
