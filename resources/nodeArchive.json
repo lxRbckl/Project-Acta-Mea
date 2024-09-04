@@ -1,11 +1,4 @@
 {
-   "demo": {
-      "os": "",
-      "hardware": "",
-      "services": [],
-      "status": "ready",
-      "host": "standalone"
-   },
    "highlander03": {
       "services": [],
       "hardware": "raspberry pi",
@@ -15,7 +8,7 @@
    },
    "highlander09": {
       "services": [
-         "project-madgarden"
+         "Project MadGarden"
       ],
       "hardware": "raspberry pi",
       "status": "ready",
@@ -24,6 +17,7 @@
    },
    "highlander07": {
       "services": [
+         "Project Acta Mea",
          "Project ACLG",
          "Project Acta Mea"
       ],
