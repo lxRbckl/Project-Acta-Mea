@@ -1,11 +1,4 @@
 {
-   "trial": {
-      "os": "",
-      "hardware": "",
-      "services": [],
-      "status": "ready",
-      "host": "standalone"
-   },
    "highlander03": {
       "services": [],
       "hardware": "raspberry pi",
@@ -51,6 +44,7 @@
    },
    "highlander08": {
       "services": [
+         "Project Acta Mea",
          "Project ACLG"
       ],
       "hardware": "raspberry pi",
