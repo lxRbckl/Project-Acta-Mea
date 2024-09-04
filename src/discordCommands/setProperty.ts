@@ -22,14 +22,12 @@ export default class setProperty extends getNode {
 
          'hardware' : [
 
-            'raspberry pi',
-            'apple',
-            'other'
+            'Raspberry Pi',
+            'Apple'
 
          ],
          'os' : [
 
-            'MacOS',
             'Ubuntu',
             'Raspbian'
 
