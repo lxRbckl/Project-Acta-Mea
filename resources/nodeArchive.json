@@ -1,4 +1,11 @@
 {
+   "trial": {
+      "os": "",
+      "hardware": "",
+      "services": [],
+      "status": "ready",
+      "host": "standalone"
+   },
    "highlander03": {
       "services": [],
       "hardware": "raspberry pi",
