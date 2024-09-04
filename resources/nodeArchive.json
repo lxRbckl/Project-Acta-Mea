@@ -1,4 +1,11 @@
 {
+   "demo": {
+      "os": "",
+      "hardware": "",
+      "services": [],
+      "status": "ready",
+      "host": "standalone"
+   },
    "highlander03": {
       "services": [],
       "hardware": "raspberry pi",
@@ -8,8 +15,7 @@
    },
    "highlander09": {
       "services": [
-         "project-acta-mea",
-         "project-acta-mea"
+         "project-madgarden"
       ],
       "hardware": "raspberry pi",
       "status": "ready",
@@ -18,7 +24,8 @@
    },
    "highlander07": {
       "services": [
-         "Project ACLG"
+         "Project ACLG",
+         "Project Acta Mea"
       ],
       "hardware": "raspberry pi",
       "status": "ready",
@@ -34,7 +41,7 @@
    },
    "highlander10": {
       "services": [
-         "project-heimir"
+         "Project Heimir"
       ],
       "hardware": "raspberry pi",
       "status": "ready",
@@ -43,10 +50,7 @@
    },
    "highlander08": {
       "services": [
-         "project-acta-mea",
-         "Project ACLG",
-         "project-acta-mea",
-         "project-acta-mea"
+         "Project ACLG"
       ],
       "hardware": "raspberry pi",
       "status": "ready",
@@ -55,8 +59,8 @@
    },
    "highlander14": {
       "services": [
-         "project-ja",
-         "project-ja"
+         "Project JA",
+         "Project JA"
       ],
       "hardware": "raspberry pi",
       "status": "ready",
@@ -65,7 +69,7 @@
    },
    "highlander04": {
       "services": [
-         "project-heimir"
+         "Project Heimir"
       ],
       "hardware": "raspberry pi",
       "status": "ready",
