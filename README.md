@@ -1,4 +1,4 @@
-# Project Acta Mea 6
+# [Project Acta Mea 6](https://github.com/lxRbckl/Project-Acta-Mea/wiki/V6)
 > Administer servers and services via a Discord bot utilizing a remote data file. V6. Summer 2024.
 
 ---
