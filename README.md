@@ -1,4 +1,4 @@
-# Project Acta Mea 1
+# [Project Acta Mea 1](https://github.com/lxRbckl/Project-Acta-Mea/wiki/V1)
 > Access Discord servers with a Discord bot. V1. Spring 2021.
 
 ---
